@@ -1,0 +1,7 @@
+// Remove excess padding as there is no label and no hint for these fields
+.app-table-selector {
+    ::ng-deep {
+        .mat-form-field-wrapper { margin-bottom: -1.25em; }
+        .mat-form-field-flex { padding-top: 0; }
+    }
+}

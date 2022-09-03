@@ -1,0 +1,383 @@
+{
+  "products": {
+    "potion": {
+      "name": "Isleworks Potion",
+      "value": 28, "time": 4,
+      "ingredients": { "palm-leaf": 2, "islewort": 2 },
+      "categories": ["concoctions"]
+    },
+    "firesand": {
+      "name": "Isleworks Firesand",
+      "value": 28, "time": 4,
+      "ingredients": { "sand": 2, "limestone": 1, "islewort": 1 },
+      "categories": ["concoctions", "unburied-treasures"]
+    },
+    "wooden-chair": {
+      "name": "Isleworks Wooden Chair",
+      "value": 41, "time": 6,
+      "ingredients": {"log": 4, "vine": 2},
+      "categories": ["furnishings", "woodworks"]
+    },
+    "grilled-clam": {
+      "name": "Isleworks Grilled Clam",
+      "value": 28, "time": 4,
+      "ingredients": { "clam": 2, "laver": 2 },
+      "categories": ["foodstuffs", "marine-merchandise"]
+    },
+    "necklace": {
+      "name": "Isleworks Necklace",
+      "value": 28, "time": 4,
+      "ingredients": { "branch": 3, "vine": 1 },
+      "categories": ["accessories", "woodworks"]
+    },
+    "coral-ring": {
+      "name": "Isleworks Coral Ring",
+      "value": 41, "time": 6,
+      "ingredients": {"coral": 3, "vine": 3},
+      "categories": ["accessories", "marine-merchandise"]
+    },
+    "barbut": {
+      "name": "Isleworks Barbut",
+      "value": 41, "time": 6,
+      "ingredients": {"copper-ore": 3, "sand": 3},
+      "categories": ["attire", "metalworks"]
+    },
+    "macuahuitl": {
+      "name": "Isleworks Macuahuitl",
+      "value": 41, "time": 6,
+      "ingredients": {"palm-log": 3, "stone": 3},
+      "categories": ["arms", "woodworks"]
+    },
+    "sauerkraut": {
+      "name": "Isleworks Sauerkraut",
+      "value": 40, "time": 4,
+      "ingredients": { "cabbage": 1, "rock-salt": 3 },
+      "categories": ["preserved-food"]
+    },
+    "baked-pumpkin": {
+      "name": "Isleworks Baked Pumpkin",
+      "value": 40, "time": 4,
+      "ingredients": { "pumpkin": 1, "sap": 3 },
+      "categories": ["foodstuffs"]
+    },
+    "tunic": {
+      "name": "Isleworks Tunic",
+      "value": 71, "time": 6,
+      "ingredients": {"fleece": 2, "vine": 4},
+      "categories": ["attire", "textiles"]
+    },
+    "culinary-knife": {
+      "name": "Isleworks Culinary Knife",
+      "value": 44, "time": 4,
+      "ingredients": { "claw": 1, "palm-log": 3 },
+      "categories": ["sundries", "creature-creations"]
+    },
+    "brush": {
+      "name": "Isleworks Brush",
+      "value": 44, "time": 4,
+      "ingredients": {"fur": 1, "palm-log": 3},
+      "categories": ["sundries", "woodworks"]
+    },
+    "boiled-egg": {
+      "name": "Isleworks Boiled Egg",
+      "value": 44, "time": 4,
+      "ingredients": {"egg": 1, "laver": 3},
+      "categories": ["foodstuffs", "creature-creations"]
+    },
+    "hora": {
+      "name": "Isleworks Hora",
+      "value": 71, "time": 6,
+      "ingredients": {"carapace": 2, "stone": 4},
+      "categories": ["arms", "creature-creations"]
+    },
+    "earrings": {
+      "name": "Isleworks Earrings",
+      "value": 44, "time": 4,
+      "ingredients": {"fang": 1, "vine": 3},
+      "categories": ["accessories", "creature-creations"]
+    },
+    "butter": {
+      "name": "Isleworks Butter",
+      "value": 44, "time": 4,
+      "ingredients": {"milk": 1, "rock-salt": 3},
+      "categories": ["ingredients", "creature-creations"]
+    },
+    "brick-counter": {
+      "name": "Isleworks Brick Counter",
+      "value": 47, "time": 6,
+      "ingredients": {"clay": 2, "limestone": 2, "palm-log": 2},
+      "categories": ["furnishings", "unburied-treasures"]
+    },
+    "bronze-sheep": {
+      "name": "Bronze Sheep",
+      "value": 63, "time": 8,
+      "ingredients": {"tinsand": 3, "copper-ore": 3, "log": 2},
+      "categories": ["furnishings", "metalworks"]
+    },
+    "growth-formula": {
+      "name": "Isleworks Growth Formula",
+      "value": 136, "time": 8,
+      "ingredients": {"alyssum": 2, "islewort": 3, "branch": 3},
+      "categories": ["concoctions"]
+    },
+    "garnet-rapier": {
+      "name": "Isleworks Garnet Rapier",
+      "value": 136, "time": 8,
+      "ingredients": {"raw-garnet": 2, "copper-ore": 3, "tinsand": 3},
+      "categories": ["arms", "unburied-treasures"]
+    },
+    "spruce-round-shield": {
+      "name": "Isleworks Spruce Round Shield",
+      "value": 136, "time": 8,
+      "ingredients": {"spruce-log": 2, "copper-ore": 3, "stone": 3},
+      "categories": ["attire", "woodworks"]
+    },
+    "shark-oil": {
+      "name": "Isleworks Shark Oil",
+      "value": 136, "time": 8,
+      "ingredients": {"hammerhead": 2, "laver": 3, "sap": 3},
+      "categories": ["sundries", "marine-merchandise"]
+    },
+    "silver-ear-cuffs": {
+      "name": "Isleworks Silver Ear Cuffs",
+      "value": 136, "time": 8,
+      "ingredients": {"silver-ore": 2, "tinsand": 3, "coral": 3},
+      "categories": ["accessories", "metalworks"]
+    },
+    "sweet-popoto": {
+      "name": "Isleworks Sweet Popoto",
+      "value": 71, "time": 6,
+      "ingredients": {"popoto": 2, "milk": 1, "sap": 3},
+      "categories": ["confections"]
+    },
+    "parsnip-salad": {
+      "name": "Isleworks Parsnip Salad",
+      "value": 47, "time": 4,
+      "ingredients": {"parsnip": 2, "islewort": 1, "sap": 1},
+      "categories": ["foodstuffs"]
+    },
+    "caramels": {
+      "name": "Isleworks Caramels",
+      "value": 81, "time": 6,
+      "ingredients": {"sugarcane": 4, "milk": 2},
+      "categories": ["confections"]
+    },
+    "ribbon": {
+      "name": "Isleworks Ribbon",
+      "value": 53, "time": 6,
+      "ingredients": {"cotton-boll": 2, "copper-ore": 2, "vine": 2},
+      "categories": ["accessories", "textiles"]
+    },
+    "rope": {
+      "name": "Isleworks Rope",
+      "value": 36, "time": 4,
+      "ingredients": {"hemp": 2, "islewort": 1, "vine": 1},
+      "categories": ["sundries", "textiles"]
+    },
+    "cavaliers-hat": {
+      "name": "Isleworks Cavalier's Hat",
+      "value": 80, "time": 6,
+      "ingredients": {"feather": 2, "cotton-boll": 2, "hemp": 2},
+      "categories": ["attire", "textiles"]
+    },
+    "isleworks-horn": {
+      "name": "Isleworks Horn",
+      "value": 80, "time": 6,
+      "ingredients": {"horn": 2, "clay": 2, "hemp": 2},
+      "categories": ["sundries", "creature-creations"]
+    },
+    "salt-cod": {
+      "name": "Isleworks Salt Cod",
+      "value": 53, "time": 6,
+      "ingredients": {"islefish": 4, "rock-salt": 2},
+      "categories": ["preserved-food", "marine-merchandise"]
+    },
+    "squid-ink": {
+      "name": "Isleworks Squid Ink",
+      "value": 36, "time": 4,
+      "ingredients": {"squid": 2, "rock-salt": 2},
+      "categories": ["ingredients", "marine-merchandise"]
+    },
+    "essential-draught": {
+      "name": "Isleworks Essential Draught",
+      "value": 53, "time": 6,
+      "ingredients": {"jellyfish": 2, "palm-leaf": 2, "laver": 2},
+      "categories": ["concoctions", "marine-merchandise"]
+    },
+    "jam": {
+      "name": "Isleberry Jam",
+      "value": 77, "time": 6,
+      "ingredients": {"isleberry": 3, "sugarcane": 2, "sap": 1},
+      "categories": ["ingredients"]
+    },
+    "tomato-relish": {
+      "name": "Isleworks Tomato Relish",
+      "value": 51, "time": 4,
+      "ingredients": {"tomato": 2, "sugarcane": 1, "islewort": 1},
+      "categories": ["ingredients"]
+    },
+    "onion-soup": {
+      "name": "Isleworks Onion Soup",
+      "value": 77, "time": 6,
+      "ingredients": {"onion": 3, "rock-salt": 2, "islewort": 1},
+      "categories": ["foodstuffs"]
+    },
+    "islefish-pie": {
+      "name": "Islefish Pie",
+      "value": 77, "time": 6,
+      "ingredients": {"wheat": 3, "islefish": 2, "sugarcane": 1},
+      "categories": ["confections", "marine-merchandise"]
+    },
+    "corn-flakes": {
+      "name": "Isleworks Corn Flakes",
+      "value": 51, "time": 4,
+      "ingredients": {"corn": 2, "sugarcane": 2},
+      "categories": ["preserved-food"]
+    },
+    "pickled-radish": {
+      "name": "Isleworks Pickled Radish",
+      "value": 103, "time": 8,
+      "ingredients": {"radish": 4, "apple": 2, "sugarcane": 2},
+      "categories": ["preserved-food"]
+    },
+    "iron-axe": {
+      "name": "Isleworks Iron Axe",
+      "value": 71, "time": 8,
+      "ingredients": {"iron-ore": 3, "log": 3, "sand": 2},
+      "categories": ["arms", "metalworks"]
+    },
+    "quartz-ring": {
+      "name": "Isleworks Quartz Ring",
+      "value": 71, "time": 8,
+      "ingredients": {"quartz": 3, "iron-ore": 3, "stone": 2},
+      "categories": ["accessories", "unburied-treasures"]
+    },
+    "porcelain-vace": {
+      "name": "Isleworks Porcelain Vase",
+      "value": 71, "time": 8,
+      "ingredients": {"leucogranite": 3, "quartz": 3, "clay": 2},
+      "categories": ["sundries", "unburied-treasures"]
+    },
+    "vegetable-juice": {
+      "name": "Isleworks Vegetable Juice",
+      "value": 77, "time": 6,
+      "ingredients": {"cabbage": 3, "islewort": 2, "laver": 1},
+      "categories": ["concoctions"]
+    },
+    "pumpkin-pudding": {
+      "name": "Isleworks Pumpkin Pudding",
+      "value": 77, "time": 6,
+      "ingredients": {"pumpkin": 3, "egg": 1, "milk": 1},
+      "categories": ["confections"]
+    },
+    "sheepfluff-rug": {
+      "name": "Isleworks Sheepfluff Rug",
+      "value": 90, "time": 6,
+      "ingredients": {"fleece": 3, "cotton-boll": 2, "hemp": 1},
+      "categories": ["furnishings", "creature-creations"]
+    },
+    "garden-scythe": {
+      "name": "Isleworks Garden Scythe",
+      "rank": 9, "value": 90, "time": 6,
+      "ingredients": {"claw": 3, "iron-ore": 2, "palm-log": 1},
+      "categories": ["sundries","metalworks"]
+    },
+    "bed": {
+      "name": "Isleworks Bed",
+      "rank": 9, "value": 120, "time": 8,
+      "ingredients": {"fur": 4, "cotton-boll": 2, "log": 2},
+      "categories": ["furnishings", "textiles"]
+    },
+    "scale-fingers": {
+      "name": "Isleworks Scale Fingers",
+      "rank": 9, "value": 120, "time": 8,
+      "ingredients": {"carapace": 4, "iron-ore": 2, "cotton-boll": 2},
+      "categories": ["attire", "creature-creations"]
+    },
+    "crook": {
+      "name": "Isleworks Crook",
+      "rank": 9, "value": 120, "time": 8,
+      "ingredients": {"fang": 4, "quartz": 2, "log": 2},
+      "categories": ["arms", "woodworks"]
+    }
+  },
+  "materials": {
+    "gathered": {
+      "palm-leaf": "Island Palm Leaf",
+      "apple": "Island Apple",
+      "branch": "Island Branch",
+      "stone": "Island Stone",
+      "clam": "Island Clam",
+      "laver": "Island Laver",
+      "coral": "Island Coral",
+      "islewort": "Islewort",
+      "sand": "Island Sand",
+      "log": "Island Log",
+      "palm-log": "Island Palm Log",
+      "vine": "Island Vine",
+      "sap": "Island Sap",
+      "copper-ore": "Island Copper Ore",
+      "limestone": "Island Limestone",
+      "rock-salt": "Island Rock Salt",
+      "sugarcane": "Island Sugarcane",
+      "cotton-boll": "Island Cotton Boll",
+      "hemp": "Island Hemp",
+      "clay": "Island Clay",
+      "tinsand": "Island Tinsand",
+      "iron-ore": "Island Iron Ore",
+      "quartz": "Island Quartz",
+      "leucogranite": "Leucogranite",
+      "islefish": "Islefish",
+      "squid": "Island Squid",
+      "jellyfish": "Island Jellyfish"
+    },
+    "granary": {
+      "alyssum": "Island Alyssum",
+      "raw-garnet": "Raw Island Garnet",
+      "spruce-log": "Island Spruce Log",
+      "hammerhead": "Island Hammerhead",
+      "silver-ore": "Island Silver Ore"
+    },
+    "produce": {
+      "popoto": "Island Popoto",
+      "cabbage": "Island Cabbage",
+      "isleberry": "Isleberry",
+      "pumpkin": "Island Pumpkin",
+      "onion": "Island Onion",
+      "tomato": "Island Tomato",
+      "wheat": "Island Wheat",
+      "corn": "Island Corn",
+      "parsnip": "Island Parsnip",
+      "radish": "Island Radish"
+    },
+    "leavings": {
+      "fleece": "Sanctuary Fleece",
+      "claw": "Sanctuary Claw",
+      "fur": "Sanctuary Fur",
+      "feather": "Sanctuary Feather",
+      "egg": "Sanctuary Egg",
+      "carapace": "Sanctuary Carapace",
+      "fang": "Sanctuary Fang",
+      "horn": "Sanctuary Horn",
+      "milk": "Sanctuary Milk"
+    }
+  },
+  "categories": {
+    "preserved-food": "Preserved Food",
+    "attire": "Attire",
+    "foodstuffs": "Foodstuffs",
+    "confections": "Confections",
+    "sundries": "Sundries",
+    "furnishings": "Furnishings",
+    "arms": "Arms",
+    "concoctions": "Concoctions",
+    "ingredients": "Ingredients",
+    "accessories": "Accessories",
+    "metalworks": "Metalworks",
+    "woodworks": "Woodworks",
+    "textiles": "Textiles",
+    "creature-creations": "Creature Creations",
+    "marine-merchandise": "Marine Merchandise",
+    "unburied-treasures": "Unburied Treasures"
+  }
+}

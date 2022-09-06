@@ -40,6 +40,16 @@
           <input matInput type="number" min="1" max="35" [formControl]="groove">
         </mat-form-field>
       </p>
+      <p>
+        <button
+          mat-raised-button
+          matTooltip="Resetting for the next Season resets Groove to 1 and all Supply to Sufficient"
+          (click)="resetForNextSeason()"
+          color="primary">Reset for Next Season</button>
+      </p>
+      <p>
+
+      </p>
     </mat-card-content>
   </mat-card>
 </div>

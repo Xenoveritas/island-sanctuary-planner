@@ -22,25 +22,22 @@ export class Popularity implements ProductModifier {
     public readonly modifier: number
   ) {}
 
-  static withId(id: string): Popularity | undefined {
-    return POPULARITIES[id];
+  static low = new Popularity('low', 'Low', 0, 0.8);
+  static average = new Popularity('average', 'Average', 1, 1);
+  static high = new Popularity('high', 'High', 2, 1.2);
+  static veryHigh = new Popularity('veryHigh', 'Very High', 3, 1.4);
+
+  static levels = [ Popularity.low, Popularity.average, Popularity.high, Popularity.veryHigh ];
+  static _byId = new Map<string, Popularity>(Popularity.levels.map(level => [level.id, level]));
+
+  static withId(id: string): Popularity;
+  static withId(id: string, defaultPopularity: Popularity): Popularity;
+  static withId(id: string, defaultPopularity: undefined): Popularity | undefined;
+  static withId(id: string, defaultPopularity?: Popularity): Popularity | undefined {
+    const result = Popularity._byId.get(id);
+    return result === undefined ? defaultPopularity : result;
   }
 }
-
-const POPULARITIES: Record<string, Popularity> = {
-  low: new Popularity('low', 'Low', 0, 0.8),
-  average: new Popularity('average', 'Average', 1, 1),
-  high: new Popularity('high', 'High', 2, 1.2),
-  veryHigh: new Popularity('veryHigh', 'Very High', 3, 1.4)
-};
-
-// Failure sure that Object.values(POPULARITIES) would also work but whatever
-export const POPULARITY_LEVELS: Popularity[] = [
-  POPULARITIES['low'],
-  POPULARITIES['average'],
-  POPULARITIES['high'],
-  POPULARITIES['veryHigh']
-];
 
 /**
  * In order to make sorting and everything somewhat sane, this is the object version of the supply level.
@@ -53,26 +50,23 @@ export class Supply implements ProductModifier {
     public readonly modifier: number
   ) {}
 
-  static withId(id: string): Supply | undefined {
-    return SUPPLIES[id];
+  static nonexistent = new Supply('nonexistent', 'Nonexistent', 0, 1.6);
+  static insufficient = new Supply('insufficient', 'Insufficient', 1, 1.3);
+  static sufficient = new Supply('sufficient', 'Sufficient', 2, 1);
+  static surplus = new Supply('surplus', 'Surplus', 3, 0.8);
+  static overflowing = new Supply('overflowing', 'Overflowing', 4, 0.6);
+
+  static levels = [ Supply.nonexistent, Supply.insufficient, Supply.sufficient, Supply.surplus, Supply.overflowing ];
+  static _byId = new Map<string, Supply>(Supply.levels.map(level => [level.id, level]));
+
+  static withId(id: string): Supply;
+  static withId(id: string, defaultSupply: Supply): Supply;
+  static withId(id: string, defaultSupply: undefined): Supply | undefined;
+  static withId(id: string, defaultSupply?: Supply): Supply | undefined {
+    const result = Supply._byId.get(id);
+    return result === undefined ? defaultSupply : result;
   }
 }
-
-const SUPPLIES: Record<string, Supply> = {
-  nonexistent: new Supply('nonexistent', 'Nonexistent', 0, 1.6),
-  insufficient: new Supply('insufficient', 'Insufficient', 1, 1.3),
-  sufficient: new Supply('sufficient', 'Sufficient', 2, 1),
-  surplus: new Supply('surplus', 'Surplus', 3, 0.8),
-  overflowing: new Supply('overflowing', 'Overflowing', 4, 0.6)
-}
-
-export const SUPPLY_LEVELS: Supply[] = [
-  SUPPLIES['nonexistent'],
-  SUPPLIES['insufficient'],
-  SUPPLIES['sufficient'],
-  SUPPLIES['surplus'],
-  SUPPLIES['overflowing']
-];
 
 export class WorkshopTier implements ProductModifier {
   constructor(
@@ -119,29 +113,38 @@ export class Product {
   readonly time: number;
   readonly categories: string[];
   readonly ingredients: Record<string, number>;
-  popularity?: Popularity;
-  supply?: Supply;
-  predictedDemand?: Popularity;
+  /**
+   * Popularity. Defaults to "average."
+   */
+  popularity = Popularity.average;
+  /**
+   * Popularity. Defaults to "sufficient."
+   */
+  supply = Supply.sufficient;
+  /**
+   * Predicted demand. Defaults to "average."
+   */
+  predictedDemand = Popularity.average;
 
   /**
    * Gets the popularity modifier, if a popularity has been set. Otherwise, returns 1.
    */
   get popularityModifier() {
-    return this.popularity?.modifier ?? 1;
+    return this.popularity.modifier;
   }
 
   /**
    * Gets the supply modifier, if a supply has been set. Otherwise, returns 1.
    */
   get supplyModifier() {
-    return this.supply?.modifier ?? 1;
+    return this.supply.modifier;
   }
 
   /**
    * Gets the popularity modifier for the predicted demand, if a predicted demand has been set. Otherwise, returns 1.
    */
   get predictedDemandModifier() {
-    return this.predictedDemand?.modifier ?? 1;
+    return this.predictedDemand.modifier;
   }
 
   get value(): number {
@@ -204,16 +207,11 @@ export class Product {
 
   getPersistedState(): PersistedProductState | null {
     if (this.popularity || this.supply || this.predictedDemand) {
-      const state: PersistedProductState = {};
-      if (this.popularity) {
-        state.p = this.popularity.id;
-      }
-      if (this.supply) {
-        state.s = this.supply.id;
-      }
-      if (this.predictedDemand) {
-        state.pd = this.predictedDemand.id;
-      }
+      const state: PersistedProductState = {
+        p: this.popularity.id,
+        s: this.supply.id,
+        pd: this.predictedDemand.id
+      };
       return state;
     } else {
       // Everything at defaults, return null
@@ -227,12 +225,7 @@ export class Product {
    */
   restorePersistedState(state: Record<string, unknown>): void {
     const p = state['p'];
-    if (typeof p === 'string') {
-      const popularity = Popularity.withId(p);
-      if (popularity !== undefined) {
-        this.popularity = popularity;
-      }
-    }
+    this.popularity = typeof p === 'string' ? Popularity.withId(p, Popularity.average) : Popularity.average;
     const s = state['s'];
     if (typeof s === 'string') {
       const supply = Supply.withId(s);
@@ -327,9 +320,9 @@ export class ProductService {
   }
 
   /**
-   * Generates an object intended to be stored within localStorage.
+   * Generates an opaque string (OK, it's a JSON string) designed to be used with storeState() and restoreState().
    */
-  createStorageState(): ProductServiceState {
+  createStorageState(): string {
     const products: Record<string, PersistedProductState> = {};
     for (const product of this._productList) {
       // See if there's any info to store
@@ -338,26 +331,28 @@ export class ProductService {
         products[product.id] = state;
       }
     }
-    return {
+    return JSON.stringify({
       products: products,
       ws: this.workshopTier.id,
       g: this.groove
-    };
+    });
   }
 
   /**
    * Stores state into localStorage.
    */
   storeState() {
-    localStorage.setItem('island-workshop', JSON.stringify(this.createStorageState()));
+    localStorage.setItem('island-workshop', this.createStorageState());
   }
 
   /**
    * Restores state from localStorage.
    */
-  restoreState() {
-    const existingState = localStorage.getItem('island-workshop');
-    if (existingState !== null) {
+  restoreState(existingState?: string | null) {
+    if (arguments.length < 1) {
+      existingState = localStorage.getItem('island-workshop');
+    }
+    if (existingState !== null && existingState !== undefined) {
       // Attempt to restore
       try {
         const state: unknown = JSON.parse(existingState);
@@ -394,6 +389,17 @@ export class ProductService {
       } catch (ex) {
         console.error('Unable to restore state:', ex);
       }
+    }
+  }
+
+  /**
+   * Resets the state of everything to Average, Sufficient
+   */
+  resetState() {
+    for (const product of this._productList) {
+      product.popularity = Popularity.average;
+      product.supply = Supply.sufficient;
+      product.predictedDemand = Popularity.average;
     }
   }
 }

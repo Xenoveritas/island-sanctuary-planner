@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ProductService, WorkshopTier, WORKSHOP_TIER_LEVELS } from '../product.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProductService, Supply, WorkshopTier, WORKSHOP_TIER_LEVELS } from '../product.service';
 
 /**
  * Provides editing for workshop details.
@@ -15,7 +16,7 @@ export class WorkshopComponent implements OnInit {
   workshopTier: FormControl<string>;
   groove: FormControl<number>;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private snackBar: MatSnackBar) {
     this.workshopTier = new FormControl<string>(this.productService.workshopTier.id, {nonNullable: true});
     this.groove = new FormControl<number>(this.productService.groove, {nonNullable: true});
   }
@@ -31,4 +32,21 @@ export class WorkshopComponent implements OnInit {
     });
   }
 
+  resetForNextSeason() {
+    // Grab the current state
+    const undoState = this.productService.createStorageState();
+    // Then, modify stuff
+    this.groove.setValue(1);
+    const products = this.productService.getProductList();
+    for (const product of products) {
+      product.supply = Supply.sufficient;
+    }
+    const snackBarRef = this.snackBar.open('Groove reset to 1, Supply for all products set to Sufficient', 'Undo', { duration: 10000 });
+    snackBarRef.onAction().subscribe(() => {
+      // Restore the undo state
+      this.productService.restoreState(undoState);
+      // And tell the form we've changed
+      this.groove.setValue(this.productService.groove);
+    });
+  }
 }

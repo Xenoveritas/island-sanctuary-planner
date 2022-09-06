@@ -14,6 +14,7 @@ import { SupplyIconComponent } from './supply-icon/supply-icon.component';
 import { WorkshopComponent } from './workshop/workshop.component';
 import { ProductTreeComponent } from './product-tree/product-tree.component';
 import { ProductTreePageComponent } from './product-tree-page/product-tree-page.component';
+import { SupplyDemandPageComponent } from './supply-demand-page/supply-demand-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProductTreePageComponent } from './product-tree-page/product-tree-page.
     SupplyIconComponent,
     WorkshopComponent,
     ProductTreeComponent,
-    ProductTreePageComponent
+    ProductTreePageComponent,
+    SupplyDemandPageComponent
   ],
   imports: [
     BrowserModule,

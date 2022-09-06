@@ -21,7 +21,7 @@ export class SupplyIconComponent implements OnInit {
       }
       return r;
     } else {
-      return '';
+      return '\u2753';
     }
   }
 }

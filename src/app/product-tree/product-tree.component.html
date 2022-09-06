@@ -1,1 +1,40 @@
-<p>product-tree works!</p>
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button [attr.aria-label]="'Toggle ' + row.product.name" (click)="row.toggleExpanded()">
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{row.expanded ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        <app-popularity-icon [popularity]="row.product.popularity"></app-popularity-icon><app-supply-icon [supply]="row.product.supply"></app-supply-icon> {{row.product.name}}
+        <!-- For now, just recurse into ourselves if expanded -->
+        <ng-container *ngIf="row.expanded"><app-product-tree [products]="row.children"></app-product-tree></ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Value Column -->
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+      <td mat-cell *matCellDef="let row">{{row.product.value}}</td>
+    </ng-container>
+
+    <!--Value / Time Column -->
+    <ng-container matColumnDef="valueTime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Value/Time</th>
+      <td mat-cell *matCellDef="let row">{{(row.product.valueOverTime).toFixed(2)}}</td>
+    </ng-container>
+
+    <!-- Time Column -->
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+      <td mat-cell *matCellDef="let row">{{row.product.time}} Hours</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -1,20 +1,45 @@
-<p>
-  These settings determine the modifiers applied to the base value when
-  calculating a final value, making the value shown more accurately reflect
-  what the mammets will generate. However, for relative values, they need not
-  be exact.
-</p>
-<p>
-  <mat-form-field appearance="fill">
-    <mat-label>Workshop Tier</mat-label>
-    <mat-select [formControl]="workshopTier">
-      <mat-option *ngFor="let tier of workshopTiers" [value]="tier.id">{{tier.name}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-</p>
-<p>
-  <mat-form-field appearance="fill">
-    <mat-label>Groove</mat-label>
-    <input matInput type="number" min="1" max="35" [formControl]="groove">
-  </mat-form-field>
-</p>
+<div class="workshop">
+  <mat-card>
+    <mat-card-title>Island Sanctuary Workshop Planner</mat-card-title>
+    <mat-card-content>
+      <p>
+        For the most part, start by copying the current (or predicted, if
+        you're planning out the next season) values for popularity and supply
+        into the Supply &amp; Demand tab. Once that's done, the Product Tree
+        tab can be used to see a list of products and what can chain with
+        them. Expanding a product shows what chains with it, and can be used
+        to plan out a workshop schedule.
+      </p>
+      <p>
+        Note that the supply changes between cycles (real-world days) - the
+        "demand shift" combines with the products built to determine the new
+        supply with the next cycle.
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Settings</mat-card-title>
+    <mat-card-content>
+      <p>
+        These settings determine the modifiers applied to the base value when
+        calculating a final value, making the value shown more accurately reflect
+        what the mammets will generate. However, for relative values, they need not
+        be exact.
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Workshop Tier</mat-label>
+          <mat-select [formControl]="workshopTier">
+            <mat-option *ngFor="let tier of workshopTiers" [value]="tier.id">{{tier.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Groove</mat-label>
+          <input matInput type="number" min="1" max="35" [formControl]="groove">
+        </mat-form-field>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

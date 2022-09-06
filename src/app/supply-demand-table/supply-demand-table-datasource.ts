@@ -2,15 +2,15 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { Product, ProductService } from './product.service';
+import { Product, ProductService } from '../product.service';
 
 /**
  * Data source for the various Product sources. This provides a DataSource that provides
  * various sorting and filtering options from the list of products within a ProductService.
  */
-export class ProductTableDataSource extends DataSource<Product> {
+export class SupplyDemandTableDataSource extends DataSource<Product> {
   /**
-   * The active view of the page data: that is, the filtered and sorted data.
+   * The underlying data, without being sorted or filtered in any fashion.
    */
   data: Product[];
   sort: MatSort | undefined;
@@ -43,7 +43,7 @@ export class ProductTableDataSource extends DataSource<Product> {
   }
 
   /**
-   *  Called when the table is being destroyed. Use this function, to clean up
+   * Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
   disconnect(): void {}

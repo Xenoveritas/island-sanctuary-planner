@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { ProductTableDataSource } from '../product-table-datasource';
+import { SupplyDemandTableDataSource } from './supply-demand-table-datasource';
 import { Product, ProductService, POPULARITY_LEVELS, SUPPLY_LEVELS } from '../product.service';
 
 /**
@@ -16,10 +15,9 @@ type ColumnName = 'name' | 'popularity' | 'supply' | 'value' | 'valueTime' | 'ba
   styleUrls: ['./supply-demand-table.component.scss']
 })
 export class SupplyDemandTableComponent implements AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<Product>;
-  dataSource: ProductTableDataSource;
+  dataSource: SupplyDemandTableDataSource;
 
   popularityLevels = POPULARITY_LEVELS;
   supplyLevels = SUPPLY_LEVELS;
@@ -28,7 +26,7 @@ export class SupplyDemandTableComponent implements AfterViewInit {
   displayedColumns: ColumnName[] = ['name', 'popularity', 'supply', 'value', 'time', 'valueTime'];
 
   constructor(private productService: ProductService) {
-    this.dataSource = new ProductTableDataSource(this.productService);
+    this.dataSource = new SupplyDemandTableDataSource(this.productService);
   }
 
   ngAfterViewInit(): void {

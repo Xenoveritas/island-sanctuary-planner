@@ -13,6 +13,7 @@ import { PopularityIconComponent } from './popularity-icon/popularity-icon.compo
 import { SupplyIconComponent } from './supply-icon/supply-icon.component';
 import { WorkshopComponent } from './workshop/workshop.component';
 import { ProductTreeComponent } from './product-tree/product-tree.component';
+import { ProductTreePageComponent } from './product-tree-page/product-tree-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProductTreeComponent } from './product-tree/product-tree.component';
     PopularityIconComponent,
     SupplyIconComponent,
     WorkshopComponent,
-    ProductTreeComponent
+    ProductTreeComponent,
+    ProductTreePageComponent
   ],
   imports: [
     BrowserModule,

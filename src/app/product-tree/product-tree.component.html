@@ -11,8 +11,6 @@
           </mat-icon>
         </button>
         <app-popularity-icon [popularity]="row.product.popularity"></app-popularity-icon><app-supply-icon [supply]="row.product.supply"></app-supply-icon> {{row.product.name}}
-        <!-- For now, just recurse into ourselves if expanded -->
-        <ng-container *ngIf="row.expanded"><app-product-tree [products]="row.children"></app-product-tree></ng-container>
       </td>
     </ng-container>
 
@@ -35,6 +33,10 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <ng-container *matRowDef="let row; columns: displayedColumns;">
+      <tr mat-row></tr>
+      <!-- For now, just recurse into ourselves if expanded -->
+      <tr *ngIf="row.expanded" ngClass="children"><td [colSpan]="displayedColumns.length"><app-product-tree [products]="row.children"></app-product-tree></td></tr>
+    </ng-container>
   </table>
 </div>

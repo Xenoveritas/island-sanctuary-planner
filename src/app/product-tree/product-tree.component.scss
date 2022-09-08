@@ -1,3 +1,7 @@
 .full-width-table {
   width: 100%;
 }
+
+tr.children > td {
+  padding: 0.25em 1em;
+}

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialModule } from '../material.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +34,7 @@ import { SupplyDemandPageComponent } from './supply-demand-page/supply-demand-pa
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
     ReactiveFormsModule
   ],

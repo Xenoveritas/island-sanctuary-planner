@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export type ProductTableSelectOption = {
   name: string;
   id: string;
+  order: number;
 };
 
 @Component({
@@ -22,9 +23,16 @@ export class ProductTableSelectComponent implements OnInit {
     for (const opt of this._options) {
       this._optionsById[opt.id] = opt;
     }
+    // Sort options by descending order
+    this._options.sort((a, b) => a.order > b.order ? -1 : (a.order < b.order ? 1 : 0));
   }
   @Input() value: ProductTableSelectOption | null = null;
   @Output() valueChange = new EventEmitter<ProductTableSelectOption | null>();
+  /**
+   * If set, the prefix to place before icons. Each <mat-option> will have a
+   * <mat-icon> with svgIcon set to it.
+   */
+  @Input() iconPrefix?: string;
 
   constructor() { }
 

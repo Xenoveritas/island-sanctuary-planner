@@ -1,1 +1,2 @@
-<span>{{createIcon()}}</span>
+<mat-icon *ngIf="supply" [ngClass]="'supply-icon ' + (supply ? 'supply-' + supply.id : '')" [svgIcon]="'island:supply-' + supply.id" style="width: 27px; height: 16px;"></mat-icon>
+<div *ngIf="!supply" style="width: 27px; height: 16px;"><!-- Placeholder --></div>

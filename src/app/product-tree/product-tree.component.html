@@ -10,7 +10,11 @@
             {{row.expanded ? 'expand_more' : 'chevron_right'}}
           </mat-icon>
         </button>
-        <app-popularity-icon [popularity]="row.product.popularity"></app-popularity-icon><app-supply-icon [supply]="row.product.supply"></app-supply-icon> {{row.product.name}}
+        <app-popularity-icon [popularity]="row.product.popularity"></app-popularity-icon><app-supply-icon [supply]="row.product.supply"></app-supply-icon><mat-icon [svgIcon]="'island:demandShift-' + row.product.demandShift.id"></mat-icon>
+        {{row.product.name}}
+        <ul class="categories" aria-label="Categories">
+          <li class="mat-chip" *ngFor="let category of row.product.categories" [ngClass]="'category-' + category.id">{{category.name}}</li>
+        </ul>
       </td>
     </ng-container>
 

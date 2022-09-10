@@ -18,6 +18,12 @@
     <td mat-cell *matCellDef="let row"><app-product-table-select label="Supply" ngClass="supply" [options]="supplyLevels" iconPrefix="island:supply-" [(value)]="row.supply" (valueChange)="storeState()"></app-product-table-select></td>
   </ng-container>
 
+  <!-- Demand Shift Column -->
+  <ng-container matColumnDef="demandShift">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Demand Shift</th>
+    <td mat-cell *matCellDef="let row"><app-product-table-select label="Demand Shift" ngClass="demandShift" [options]="demandShiftLevels" iconPrefix="island:demandShift-" [(value)]="row.demandShift" (valueChange)="storeState()"></app-product-table-select></td>
+  </ng-container>
+
   <!-- Modified Value Column -->
   <ng-container matColumnDef="value">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>

@@ -2,12 +2,12 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { SupplyDemandTableDataSource } from './supply-demand-table-datasource';
-import { Product, ProductService, Popularity, Supply } from '../product.service';
+import { Product, ProductService, Popularity, Supply, DemandShift } from '../product.service';
 
 /**
  * Valid colum names.
  */
-type ColumnName = 'name' | 'popularity' | 'supply' | 'value' | 'valueTime' | 'baseValue' | 'time';
+type ColumnName = 'name' | 'popularity' | 'supply' | 'demandShift' | 'value' | 'valueTime' | 'baseValue' | 'time';
 
 @Component({
   selector: 'app-supply-demand-table',
@@ -21,9 +21,10 @@ export class SupplyDemandTableComponent implements AfterViewInit {
 
   popularityLevels = Popularity.levels;
   supplyLevels = Supply.levels;
+  demandShiftLevels = DemandShift.levels;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns: ColumnName[] = ['name', 'popularity', 'supply', 'value', 'time', 'valueTime'];
+  displayedColumns: ColumnName[] = ['name', 'popularity', 'supply', 'demandShift', 'value', 'time', 'valueTime'];
 
   constructor(private productService: ProductService) {
     this.dataSource = new SupplyDemandTableDataSource(this.productService);

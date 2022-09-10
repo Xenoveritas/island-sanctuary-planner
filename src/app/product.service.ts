@@ -68,6 +68,32 @@ export class Supply implements ProductModifier {
   }
 }
 
+export class DemandShift {
+  constructor(
+    public readonly id: string,
+    public readonly name: string,
+    public readonly order: number,
+    public readonly value: number
+  ) {}
+
+  static plummeting = new DemandShift('plummeting', 'Plummeting', 0, -2);
+  static decreasing = new DemandShift('decreasing', 'Decreasing', 1, -1);
+  static none = new DemandShift('none', 'None', 2, 0);
+  static increasing = new DemandShift('increasing', 'Increasing', 3, 1);
+  static skyrocketing = new DemandShift('skyrocketing', 'Skyrocketing', 4, 2);
+
+  static levels = [ DemandShift.plummeting, DemandShift.decreasing, DemandShift.none, DemandShift.increasing, DemandShift.skyrocketing ];
+  static _byId = new Map<string, DemandShift>(DemandShift.levels.map(level => [level.id, level]));
+
+  static withId(id: string): DemandShift;
+  static withId(id: string, defaultDemandShift: DemandShift): DemandShift;
+  static withId(id: string, defaultDemandShift: undefined): DemandShift | undefined;
+  static withId(id: string, defaultDemandShift?: DemandShift): DemandShift | undefined {
+    const result = DemandShift._byId.get(id);
+    return result === undefined ? defaultDemandShift : result;
+  }
+}
+
 export class WorkshopTier implements ProductModifier {
   constructor(
     public readonly id: string,
@@ -95,7 +121,10 @@ const WORKSHOPS: Record<string, WorkshopTier> = {
 export const WORKSHOP_TIER_LEVELS: WorkshopTier[] = Array.from(Object.values(WORKSHOPS));
 
 export type PersistedProductState = {
-  p?: string, s?: string, pd?: string
+  p?: string;
+  s?: string;
+  ds?: string;
+  pd?: string;
 }
 
 /**
@@ -111,16 +140,20 @@ export class Product {
    * Time in (real world) hours to make the object.
    */
   readonly time: number;
-  readonly categories: string[];
+  readonly categories: Category[];
   readonly ingredients: Record<string, number>;
   /**
    * Popularity. Defaults to "average."
    */
   popularity = Popularity.average;
   /**
-   * Popularity. Defaults to "sufficient."
+   * Supply. Defaults to "sufficient."
    */
   supply = Supply.sufficient;
+  /**
+   * Demand shift. Defaults to "none."
+   */
+  demandShift = DemandShift.none;
   /**
    * Predicted demand. Defaults to "average."
    */
@@ -165,7 +198,15 @@ export class Product {
     this.name = json.name;
     this.baseValue = json.value;
     this.time = json.time;
-    this.categories = json.categories;
+    this.categories = json.categories.map((categoryId) => {
+      const category = this.service.getCategory(categoryId);
+      if (typeof category === 'undefined') {
+        throw new Error(`Unknown category ${categoryId} in source data`);
+      }
+      // Also add ourself to the category
+      category._products.push(this);
+      return category;
+    });
     // The type from TypeScript's JSON is essentially wrong because it
     // considers all the "missing" elements to be of type undefined.
     // So just copy over whatever is correct.
@@ -210,6 +251,7 @@ export class Product {
       const state: PersistedProductState = {
         p: this.popularity.id,
         s: this.supply.id,
+        ds: this.demandShift.id,
         pd: this.predictedDemand.id
       };
       return state;
@@ -227,13 +269,15 @@ export class Product {
     const p = state['p'];
     this.popularity = typeof p === 'string' ? Popularity.withId(p, Popularity.average) : Popularity.average;
     const s = state['s'];
-    if (typeof s === 'string') {
-      const supply = Supply.withId(s);
-      if (supply !== undefined) {
-        this.supply = supply;
-      }
-    }
+    this.supply = typeof s === 'string' ? Supply.withId(s, Supply.sufficient) : Supply.sufficient;
+    const ds = state['ds'];
+    this.demandShift = typeof ds === 'string' ? DemandShift.withId(ds, DemandShift.none) : DemandShift.none;
   }
+}
+
+export class Category {
+  _products: Product[] = [];
+  constructor(public readonly id: string, public readonly name: string) {}
 }
 
 export type ProductServiceState = {
@@ -254,6 +298,7 @@ export class ProductService {
   _products: Record<string, Product>;
   _productsByCategory: Record<string, Product[]>;
   _productList: Product[];
+  _categories: Map<string, Category>;
   /**
    * Workshop tier for calculating the value of products.
    */
@@ -269,13 +314,18 @@ export class ProductService {
     this._products = {};
     this._productsByCategory = {};
     this._productList = [];
+    this._categories = new Map<string, Category>();
     // For ... reasons, use Object.entries (reasons = TypeScript JSON types being dumb)
+    // Create categories
+    for (const [id, categoryName] of Object.entries(productData.categories)) {
+      this._categories.set(id, new Category(id, categoryName));
+    }
     for (const [id, productJson] of Object.entries(productData.products)) {
       const product = new Product(id, productJson, this);
       this._products[id] = product;
       this._productList.push(product);
-      for (const categoryId of product.categories) {
-        (this._productsByCategory[categoryId] ??= []).push(product);
+      for (const category of product.categories) {
+        (this._productsByCategory[category.id] ??= []).push(product);
       }
     }
   }
@@ -289,7 +339,14 @@ export class ProductService {
     return this._productList.slice(0);
   }
 
-  getProductsInCategory(category: string): Product[] {
+  getCategory(id: string): Category | undefined {
+    return this._categories.get(id);
+  }
+
+  getProductsInCategory(category: string | Category): Product[] {
+    if (typeof category === 'object') {
+      category = category.id;
+    }
     if (category in this._productsByCategory) {
       return this._productsByCategory[category].slice(0);
     } else {
@@ -302,7 +359,7 @@ export class ProductService {
    * @param categories the categories
    * @returns
    */
-  getProductsInCategories(categories: string[]): Product[] {
+  getProductsInCategories(categories: (string | Category)[]): Product[] {
     if (categories.length === 1) {
       return this.getProductsInCategory(categories[0]);
     }
@@ -311,6 +368,9 @@ export class ProductService {
     }
     // Otherwise, we need to remove duplicates, so just create a set of IDs
     const resultIds = new Set<string>(categories.reduce<string[]>((result, category) => {
+      if (typeof category === 'object') {
+        category = category.id;
+      }
       if (category in this._productsByCategory) {
         result.push(...this._productsByCategory[category].map(p => p.id));
       }

@@ -5,138 +5,141 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs>
-    <svg id="popularity-veryHigh" width="16" height="16">
-      <ellipse
+    <svg id="popularity-veryHigh" width="24" height="24">
+      <circle
         style="fill:#ffc76b;stroke-width:1;stroke:#000000;stroke-opacity:1;stroke-dasharray:none"
-        cx="8" cy="8" rx="7.5" ry="7.5" />
-      <ellipse
-        style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
-        cx="5.5" cy="6" rx="1.5" ry="1.5" />
-      <ellipse
-        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
-        cx="10.5" cy="6" rx="1.5" ry="1.5" />
+        cx="12" cy="12" r="11.5" />
+      <circle
+        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-dasharray:none;stroke-opacity:1"
+        cx="8" cy="8.5" r="2.5" />
+      <circle
+        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-dasharray:none;stroke-opacity:1"
+        cx="16" cy="8.5" r="2.5" />
       <path
         style="fill:none;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-        d="m 4.5,10.5 c 2.5,3 4.5,3 7,0" />
+        d="m 5.7808688,15.25 c 4,5 8.0000002,5 12.0000002,0" />
     </svg>
-    <svg id="popularity-high" width="16" height="16">
-      <ellipse
+    <svg id="popularity-high" width="24" height="24">
+      <circle
         style="fill:#ffc76b;stroke-width:1;stroke:#000000;stroke-opacity:1;stroke-dasharray:none"
-        cx="8" cy="8" rx="7.5" ry="7.5" />
-      <ellipse
-        style="fill:#000000;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
-        cx="5.5" cy="6" rx="1" ry="1.5" />
+        cx="12" cy="12" r="11.5" />
       <ellipse
         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
-        cx="10.5" cy="6" rx="1" ry="1.5" />
-      <path
-        style="fill:none;stroke:#000000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-        d="m 4.5,11 c 2.5,1.5 4.5,1.5 7,0" />
-    </svg>
-    <svg id="popularity-average" width="16" height="16">
+        cx="8" cy="8.5" rx="1.5" ry="3" />
       <ellipse
+        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+        cx="16" cy="8.5" rx="1.5" ry="3" />
+      <path
+        style="fill:none;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 5.7957974,16.1875 c 4.2191316,3.75 8.2191316,3.75 12.0000006,0" />
+    </svg>
+    <svg id="popularity-average" width="24" height="24">
+      <circle
         style="fill:#9ccba5;stroke-width:1;stroke:#000000;stroke-opacity:1;stroke-dasharray:none"
-        cx="8" cy="8" rx="7.5" ry="7.5" />
-      <ellipse
-        style="fill:#000000;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
-        cx="5.5" cy="6" rx="1" ry="1.5" />
+        cx="12" cy="12" r="11.5" />
       <ellipse
         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
-        cx="10.5" cy="6" rx="1" ry="1.5" />
-      <path
-        style="fill:none;stroke:#000000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-        d="m 5,11.5 6,0" />
-    </svg>
-    <svg id="popularity-low" width="16" height="16">
+        cx="8" cy="8.5" rx="1.5" ry="3" />
       <ellipse
+        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+        cx="16" cy="8.5" rx="1.5" ry="3" />
+      <path
+        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+        d="M 6,18 H 18" />
+    </svg>
+    <svg id="popularity-low" width="24" height="24">
+      <circle
         style="fill:#cea2e7;stroke-width:1;stroke:#000000;stroke-opacity:1;stroke-dasharray:none"
-        cx="8" cy="8" rx="7.5" ry="7.5" />
-      <ellipse
-        style="fill:#000000;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
-        cx="5.5" cy="6" rx="1" ry="1.5" />
+        cx="12" cy="12" r="11.5" />
       <ellipse
         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
-        cx="10.5" cy="6" rx="1" ry="1.5" />
+        cx="8" cy="8.5" rx="1.5" ry="3" />
+      <ellipse
+        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
+        cx="16" cy="8.5" rx="1.5" ry="3" />
       <path
-        style="fill:none;stroke:#000000;stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-        d="m 4.5,12.23188 c 2.5,-1.5 4.5,-1.5 7,0" />
+        style="fill:none;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 5.7957974,19.252561 c 4.2191316,-3.75 8.2191316,-3.75 12.0000006,0" />
+      <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="M 17.5,11 16,14 c 0,1 0.5,1.5 1.5,1.5 1,0 1.5,-0.5 1.5,-1.5 z" />
     </svg>
-    <svg id="supply-overflowing" width="27" height="16" viewBox="0 0 27 16">
+    <svg id="supply-overflowing" width="37" height="24" viewBox="0 0 37 24">
       <defs>
         <g id="supply-box">
           <path
             style="display:inline;fill:#debe94;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 0.5,10.5 v -5 l 4,-3 4,3 v 5 l -4,3 z" />
+            d="m 0.5,15.5 v -7 l 6,-4 6,4 v 7 l -6,4 z" />
           <path
             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 0.5,5.5 4,3 4,-3" />
+            d="m 0.5,8.5 6,3.5 6,-3.5" />
           <path
             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 4.5,8.5 v 5" />
+            d="m 6.5,12 v 7.5" />
           <path
             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 6.5,4 -4,3 v 2" />
+            d="M 9,6.5 3.5,10 v 3" />
         </g>
       </defs>
       <use href="#supply-box"/>
-      <use href="#supply-box" transform="translate(6,0)"/>
-      <use href="#supply-box" transform="translate(12,0)"/>
-      <use href="#supply-box" transform="translate(18,0)"/>
+      <use href="#supply-box" transform="translate(8,0)"/>
+      <use href="#supply-box" transform="translate(16,0)"/>
+      <use href="#supply-box" transform="translate(24,0)"/>
     </svg>
-    <svg id="supply-surplus" width="27" height="16" viewBox="0 0 27 16">
+    <svg id="supply-surplus" width="37" height="24" viewBox="0 0 37 24">
       <defs>
         <g id="supply-box">
           <path
             style="display:inline;fill:#debe94;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 0.5,10.5 v -5 l 4,-3 4,3 v 5 l -4,3 z" />
+            d="m 0.5,15.5 v -7 l 6,-4 6,4 v 7 l -6,4 z" />
           <path
             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 0.5,5.5 4,3 4,-3" />
+            d="m 0.5,8.5 6,3.5 6,-3.5" />
           <path
             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 4.5,8.5 v 5" />
+            d="m 6.5,12 v 7.5" />
           <path
             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 6.5,4 -4,3 v 2" />
+            d="M 9,6.5 3.5,10 v 3" />
         </g>
       </defs>
       <use href="#supply-box"/>
-      <use href="#supply-box" transform="translate(6,0)"/>
-      <use href="#supply-box" transform="translate(12,0)"/>
+      <use href="#supply-box" transform="translate(8,0)"/>
+      <use href="#supply-box" transform="translate(16,0)"/>
     </svg>
-    <svg id="supply-sufficient" width="27" height="16" viewBox="0 0 27 16">
+    <svg id="supply-sufficient" width="37" height="24" viewBox="0 0 37 24">
       <defs>
         <g id="supply-box">
           <path
             style="display:inline;fill:#debe94;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 0.5,10.5 v -5 l 4,-3 4,3 v 5 l -4,3 z" />
+            d="m 0.5,15.5 v -7 l 6,-4 6,4 v 7 l -6,4 z" />
           <path
             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 0.5,5.5 4,3 4,-3" />
+            d="m 0.5,8.5 6,3.5 6,-3.5" />
           <path
             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 4.5,8.5 v 5" />
+            d="m 6.5,12 v 7.5" />
           <path
             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-            d="m 6.5,4 -4,3 v 2" />
+            d="M 9,6.5 3.5,10 v 3" />
         </g>
       </defs>
       <use href="#supply-box"/>
-      <use href="#supply-box" transform="translate(6,0)"/>
+      <use href="#supply-box" transform="translate(8,0)"/>
     </svg>
-    <svg id="supply-insufficient" width="27" height="16" viewBox="0 0 27 16">
+    <svg id="supply-insufficient" width="37" height="24" viewBox="0 0 37 24">
       <path
         style="display:inline;fill:#debe94;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-        d="m 0.5,10.5 v -5 l 4,-3 4,3 v 5 l -4,3 z" />
+        d="m 0.5,15.5 v -7 l 6,-4 6,4 v 7 l -6,4 z" />
       <path
         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-        d="m 0.5,5.5 4,3 4,-3" />
+        d="m 0.5,8.5 6,3.5 6,-3.5" />
       <path
         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-        d="m 4.5,8.5 v 5" />
+        d="m 6.5,12 v 7.5" />
       <path
         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-        d="m 6.5,4 -4,3 v 2" />
+        d="M 9,6.5 3.5,10 v 3" />
     </svg>
     <svg id="supply-nonexistent" width="27" height="16" viewBox="0 0 27 16">
       <!-- Legit empty for now -->

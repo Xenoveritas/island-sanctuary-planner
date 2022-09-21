@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="favicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="32.09375"
+     inkscape:cx="15.345667"
+     inkscape:cy="13.491723"
+     inkscape:window-width="2560"
+     inkscape:window-height="1387"
+     inkscape:window-x="2552"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1049"
+       spacingx="0.5"
+       spacingy="0.5"
+       empspacing="2" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3991">
+      <stop
+         style="stop-color:#ffa400;stop-opacity:1;"
+         offset="0"
+         id="stop3987" />
+      <stop
+         style="stop-color:#ffcf6a;stop-opacity:1;"
+         offset="1"
+         id="stop3989" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3991"
+       id="radialGradient3993"
+       cx="15"
+       cy="33.25"
+       fx="15"
+       fy="33.25"
+       r="18.5"
+       gradientTransform="matrix(1,0,0,0.5,0,16.625)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:url(#radialGradient3993);fill-opacity:1"
+       id="path2968"
+       ry="9.25"
+       rx="18.5"
+       cy="33.25"
+       cx="15" />
+    <path
+       style="fill:none;stroke:#963600;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+       d="M 13.5,26.5 C 14.571441,18.287957 16.681026,10.616675 24.5,4"
+       id="path3858"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#158200;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+       d="M 24.5,4.5 23,14.5"
+       id="path3956" />
+    <path
+       style="fill:none;stroke:#158200;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+       d="m 24.5,4.5 4,7"
+       id="path3958" />
+    <path
+       style="fill:none;stroke:#158200;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+       d="m 23.5,4 -11,3.5"
+       id="path3960" />
+    <path
+       style="fill:none;stroke:#158200;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+       d="M 24,4 11,2.5"
+       id="path3962" />
+    <path
+       style="fill:none;stroke:#158200;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-dasharray:none"
+       d="m 24.5,3.5 -8,8"
+       id="path4990" />
+    <path
+       style="fill:none;stroke:#158200;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 23.5,4.5 -3,8"
+       id="path5262" />
+    <path
+       style="fill:none;stroke:#158200;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 24,3.5 6.5,5"
+       id="path5264" />
+    <path
+       style="fill:none;stroke:#158200;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 21.5,5 16,8.5"
+       id="path5266" />
+  </g>
+</svg>

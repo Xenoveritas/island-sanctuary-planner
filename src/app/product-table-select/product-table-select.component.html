@@ -1,6 +1,4 @@
-<mat-form-field appearance="fill" class="app-table-selector">
-  <mat-select [placeholder]="label" [value]="value?.id ?? ''" (selectionChange)="onValueChanged($event.value)">
-    <mat-select-trigger><mat-icon *ngIf="iconPrefix && value" [svgIcon]="iconPrefix + value.id"></mat-icon>{{value?.name ?? ''}}</mat-select-trigger>
-    <mat-option *ngFor="let opt of options" [value]="opt.id"><mat-icon *ngIf="iconPrefix" [svgIcon]="iconPrefix + opt.id"></mat-icon>{{opt.name}}</mat-option>
-  </mat-select>
-</mat-form-field>
+<button mat-button class="product-select-trigger" [matMenuTriggerFor]="menu" (keydown)="_handleKey($event)"><mat-icon *ngIf="iconPrefix && value" [svgIcon]="iconPrefix + value.id"></mat-icon> {{value?.name}} <mat-icon fontIcon="arrow_drop_down"></mat-icon></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let opt of options" (click)="_setValue(opt)"><mat-icon *ngIf="iconPrefix" [svgIcon]="iconPrefix + opt.id"></mat-icon> {{opt.name}}</button>
+</mat-menu>

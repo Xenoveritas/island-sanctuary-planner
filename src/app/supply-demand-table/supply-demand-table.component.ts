@@ -35,6 +35,17 @@ export class SupplyDemandTableComponent implements AfterViewInit {
     this.table.dataSource = this.dataSource;
   }
 
+  _selectNext(source: HTMLTableCellElement, focus: string): void {
+    // There appears to be no really good way to discover the next row other than via DOM manipulation. Soooo...
+    const nextRow = source.parentElement?.nextElementSibling;
+    if (nextRow) {
+      const nextElement = nextRow.querySelector('.' + focus + ' app-product-table-select button') as HTMLElement;
+      if (typeof nextElement['focus'] === 'function') {
+        nextElement.focus();
+      }
+    }
+  }
+
   storeState(): void {
     this.productService.storeState();
   }

@@ -9,19 +9,19 @@
   <!-- Popularity Column -->
   <ng-container matColumnDef="popularity">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Popularity</th>
-    <td mat-cell *matCellDef="let row"><app-product-table-select label="Popularity" ngClass="popularity" [options]="popularityLevels" iconPrefix="island:popularity-" [(value)]="row.popularity" (valueChange)="storeState()"></app-product-table-select></td>
+    <td mat-cell *matCellDef="let row" ngClass="popularity" #cell><app-product-table-select label="Popularity" ngClass="popularity" [options]="popularityLevels" iconPrefix="island:popularity-" [(value)]="row.popularity" (valueChange)="storeState()" (moveToNext)="_selectNext(cell, 'popularity')"></app-product-table-select></td>
   </ng-container>
 
   <!-- Supply Column -->
   <ng-container matColumnDef="supply">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Supply</th>
-    <td mat-cell *matCellDef="let row"><app-product-table-select label="Supply" ngClass="supply" [options]="supplyLevels" iconPrefix="island:supply-" [(value)]="row.supply" (valueChange)="storeState()"></app-product-table-select></td>
+    <td mat-cell *matCellDef="let row" ngClass="supply" #cell><app-product-table-select label="Supply" ngClass="supply" [options]="supplyLevels" iconPrefix="island:supply-" [(value)]="row.supply" (valueChange)="storeState()" (moveToNext)="_selectNext(cell, 'supply')"></app-product-table-select></td>
   </ng-container>
 
   <!-- Demand Shift Column -->
   <ng-container matColumnDef="demandShift">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Demand Shift</th>
-    <td mat-cell *matCellDef="let row"><app-product-table-select label="Demand Shift" ngClass="demandShift" [options]="demandShiftLevels" iconPrefix="island:demandShift-" [(value)]="row.demandShift" (valueChange)="storeState()"></app-product-table-select></td>
+    <td mat-cell *matCellDef="let row" ngClass="demandShift" #cell><app-product-table-select label="Demand Shift" ngClass="demandShift" [options]="demandShiftLevels" iconPrefix="island:demandShift-" [(value)]="row.demandShift" (valueChange)="storeState()" (moveToNext)="_selectNext(cell, 'demandShift')"></app-product-table-select></td>
   </ng-container>
 
   <!-- Modified Value Column -->

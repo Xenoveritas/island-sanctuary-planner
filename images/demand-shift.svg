@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="demand-shift.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="32.09375"
+     inkscape:cx="21.000974"
+     inkscape:cy="11.40409"
+     inkscape:window-width="2560"
+     inkscape:window-height="1387"
+     inkscape:window-x="2552"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid132"
+       spacingx="0.5"
+       spacingy="0.5"
+       empspacing="2" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="None"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <path
+       style="fill:#ffc968;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 21.5,12.5 -7,-6 v 3 h -11 v 6 h 11 v 3 z"
+       id="path290"
+       sodipodi:nodetypes="cccccccc" />
+  </g>
+  <g
+     inkscape:label="Decreasing"
+     inkscape:groupmode="layer"
+     id="g1836"
+     style="display:inline"
+     transform="rotate(90,12.5,12.5)">
+    <path
+       style="fill:#ff7272;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 21.5,12.5 -7,-6 v 3 h -11 v 6 h 11 v 3 z"
+       id="path1834"
+       sodipodi:nodetypes="cccccccc" />
+  </g>
+  <g
+     inkscape:label="Increasing"
+     inkscape:groupmode="layer"
+     id="g1832"
+     style="display:none">
+    <path
+       style="fill:#6899ff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 12.5,1.5 -6,7 h 3 v 11 h 6 v -11 h 3 z"
+       id="path1830"
+       sodipodi:nodetypes="cccccccc" />
+  </g>
+  <g
+     inkscape:label="Skyrocketing"
+     inkscape:groupmode="layer"
+     id="g1784"
+     style="display:none">
+    <path
+       style="fill:#6899ff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 18,1.5 -5,7 h 2.5 v 11 h 5 V 8.5 H 23 Z"
+       id="path1782-1"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       style="fill:#6899ff;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 6,1.5 -5,7 h 2.5 v 11 h 5 V 8.5 H 11 Z"
+       id="path1782-1-0"
+       sodipodi:nodetypes="cccccccc" />
+  </g>
+  <g
+     inkscape:label="Plummeting"
+     inkscape:groupmode="layer"
+     id="g1842"
+     style="display:none">
+    <path
+       style="fill:#ff7272;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 18,21.5 -5,-7 h 2.5 V 3.5000002 h 5 V 14.5 H 23 Z"
+       id="path1838"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       style="fill:#ff7272;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 6,21.5 -5,-7 H 3.5 V 3.5000002 h 5 V 14.5 H 11 Z"
+       id="path1840"
+       sodipodi:nodetypes="cccccccc" />
+  </g>
+</svg>

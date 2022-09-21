@@ -31,7 +31,19 @@ $island-sanctuary-planner-theme: mat.define-light-theme((
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($island-sanctuary-planner-theme);
+@include mat.core-theme($island-sanctuary-planner-theme);
+@include mat.button-theme($island-sanctuary-planner-theme);
+@include mat.card-theme($island-sanctuary-planner-theme);
+@include mat.table-theme($island-sanctuary-planner-theme);
+@include mat.form-field-theme($island-sanctuary-planner-theme);
+@include mat.icon-theme($island-sanctuary-planner-theme);
+@include mat.input-theme($island-sanctuary-planner-theme);
+@include mat.menu-theme($island-sanctuary-planner-theme);
+@include mat.select-theme($island-sanctuary-planner-theme);
+@include mat.sort-theme($island-sanctuary-planner-theme);
+@include mat.tabs-theme($island-sanctuary-planner-theme);
+@include mat.tooltip-theme($island-sanctuary-planner-theme);
+@include mat.snack-bar-theme($island-sanctuary-planner-theme);
 
 /* You can add global styles to this file, and also import other style files */
 :root {
@@ -42,3 +54,11 @@ $island-sanctuary-planner-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Global icon sizes
+mat-icon[data-mat-icon-name^=popularity-], mat-icon[data-mat-icon-name^=demandShift-] {
+  width: 24px; height: 24px;
+}
+mat-icon[data-mat-icon-name^=supply-] {
+  width: 37px; height: 24px;
+}

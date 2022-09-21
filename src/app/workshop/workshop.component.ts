@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ProductService, Supply, WorkshopTier, WORKSHOP_TIER_LEVELS } from '../product.service';
+import { DemandShift, ProductService, Supply, WorkshopTier, WORKSHOP_TIER_LEVELS } from '../product.service';
 
 /**
  * Provides editing for workshop details.
@@ -40,8 +40,9 @@ export class WorkshopComponent implements OnInit {
     const products = this.productService.getProductList();
     for (const product of products) {
       product.supply = Supply.sufficient;
+      product.demandShift = DemandShift.none;
     }
-    const snackBarRef = this.snackBar.open('Groove reset to 1, Supply for all products set to Sufficient', 'Undo', { duration: 10000 });
+    const snackBarRef = this.snackBar.open('Groove reset to 1, Supply for all products set to Sufficient, and Demand Shift to None', 'Undo', { duration: 10000 });
     snackBarRef.onAction().subscribe(() => {
       // Restore the undo state
       this.productService.restoreState(undoState);

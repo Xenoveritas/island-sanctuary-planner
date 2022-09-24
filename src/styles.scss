@@ -50,6 +50,7 @@ $island-sanctuary-planner-theme: mat.define-light-theme((
   $config: mat.get-color-config($island-sanctuary-planner-theme);
   $background: map.get(map.get($config, 'background'), 'unselected-chip');
   --unselected-chip-background: #{$background};
+  --select-arrow: #{map.get(map.get($config, 'foreground'), 'secondary-text')};
 }
 
 html, body { height: 100%; }
@@ -61,4 +62,12 @@ mat-icon[data-mat-icon-name^=popularity-], mat-icon[data-mat-icon-name^=demandSh
 }
 mat-icon[data-mat-icon-name^=supply-] {
   width: 37px; height: 24px;
+}
+
+.product-table-select-menu {
+  // Remove padding from the menu
+  .mat-menu-content {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }

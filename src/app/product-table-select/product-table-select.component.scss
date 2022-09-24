@@ -1,7 +1,11 @@
-// Remove excess padding as there is no label and no hint for these fields
-.app-table-selector {
-    ::ng-deep {
-        .mat-form-field-wrapper { margin-bottom: -1.25em; }
-        .mat-form-field-flex { padding-top: 0; }
-    }
+button.product-select-trigger {
+  font-weight: 400;
+  text-align: start;
+  width: 200px;
+  mat-icon[data-mat-icon-name=arrow_drop_down] {
+    color: var(--select-arrow);
+    // This works, but I hate it
+    float: right;
+    padding-top: 4px;
+  }
 }

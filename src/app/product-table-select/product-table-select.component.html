@@ -1,4 +1,6 @@
 <button mat-button class="product-select-trigger" [matMenuTriggerFor]="menu" (keydown)="_handleKey($event)"><mat-icon *ngIf="iconPrefix && value" [svgIcon]="iconPrefix + value.id"></mat-icon> {{value?.name}} <mat-icon fontIcon="arrow_drop_down"></mat-icon></button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item *ngFor="let opt of options" (click)="_setValue(opt)"><mat-icon *ngIf="iconPrefix" [svgIcon]="iconPrefix + opt.id"></mat-icon> {{opt.name}}</button>
+<mat-menu class="product-table-select-menu" #menu="matMenu">
+  <ng-template matMenuContent>
+    <button mat-menu-item *ngFor="let opt of options" (click)="_setValue(opt)"><mat-icon *ngIf="iconPrefix" [svgIcon]="iconPrefix + opt.id"></mat-icon> {{opt.name}}</button>
+  </ng-template>
 </mat-menu>

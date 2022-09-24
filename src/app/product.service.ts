@@ -299,6 +299,7 @@ export class ProductService {
   _productsByCategory: Record<string, Product[]>;
   _productList: Product[];
   _categories: Map<string, Category>;
+  _optimizerWorker?: Worker;
   /**
    * Workshop tier for calculating the value of products.
    */
@@ -328,6 +329,20 @@ export class ProductService {
         (this._productsByCategory[category.id] ??= []).push(product);
       }
     }
+
+    if (typeof Worker !== 'undefined') {
+      // Create a new
+      this._optimizerWorker = new Worker(new URL('./product.worker', import.meta.url));
+      this._optimizerWorker.onmessage = ({ data }) => {
+        console.log(`page got message: ${data}`);
+      };
+      this._optimizerWorker.postMessage('hello');
+    } else {
+      // Web Workers are not supported in this environment. The fallback would be doing
+      // optimization calculations within the main thread, which is - not optimal. So
+      // just don't support it for now.
+    }
+
   }
 
   /**

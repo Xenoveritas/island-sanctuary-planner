@@ -1,3 +1,17 @@
+<mat-card *ngIf="path">
+  <div class="path">
+    <ul>
+      <li class="product" *ngFor="let product of path; let i = index">{{product.name}}<span *ngIf="i > 0">&times; 2</span></li>
+      <li class="total">= {{pathTotalValue}}, {{pathTotalTime}} hours</li>
+    </ul>
+  </div>
+  <div class="path reverse" *ngIf="path.length > 1">
+    <ul class="product-path">
+      <li class="product" *ngFor="let product of reversePath; let i = index">{{product.name}}<span *ngIf="i > 0">&times; 2</span></li>
+      <li class="total">= {{reversePathTotalValue}}, {{pathTotalTime}} hours</li>
+    </ul>
+  </div>
+</mat-card>
 <div class="mat-elevation-z8">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
 
@@ -40,7 +54,7 @@
     <ng-container *matRowDef="let row; columns: displayedColumns;">
       <tr mat-row></tr>
       <!-- For now, just recurse into ourselves if expanded -->
-      <tr *ngIf="row.expanded" ngClass="children"><td [colSpan]="displayedColumns.length"><app-product-tree [products]="row.children"></app-product-tree></td></tr>
+      <tr *ngIf="row.expanded" ngClass="children"><td [colSpan]="displayedColumns.length"><app-product-tree [products]="row.children" [path]="_createPath(row)"></app-product-tree></td></tr>
     </ng-container>
   </table>
 </div>

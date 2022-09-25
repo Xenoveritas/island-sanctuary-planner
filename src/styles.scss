@@ -65,9 +65,10 @@ mat-icon[data-mat-icon-name^=supply-] {
 }
 
 .product-table-select-menu {
-  // Remove padding from the menu
   .mat-menu-content {
+    // Remove padding from the menu
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    width: 200px;
   }
 }

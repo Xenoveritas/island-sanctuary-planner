@@ -1,0 +1,7 @@
+<p *ngIf="!results">Calculating...</p>
+<ul *ngIf="results">
+  <li *ngFor="let result of results">
+    <span *ngFor="let product of result.products; let i = index">{{ i > 0 ? ', ' : ''}}{{ product.name }}</span>
+    {{result.value}}, {{result.time}} hours
+  </li>
+</ul>

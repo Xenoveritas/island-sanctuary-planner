@@ -2,5 +2,6 @@
   <a mat-tab-link routerLink="/workshop" routerLinkActive #workshopRLA="routerLinkActive" [active]="workshopRLA.isActive">Workshop</a>
   <a mat-tab-link routerLink="/supplyDemand" routerLinkActive #supplyDemandRLA="routerLinkActive" [active]="supplyDemandRLA.isActive">Supply &amp; Demand</a>
   <a mat-tab-link routerLink="/products" routerLinkActive #productsRLA="routerLinkActive" [active]="productsRLA.isActive">Product Tree</a>
+  <a mat-tab-link routerLink="/optimize" routerLinkActive #optimizeRLA="routerLinkActive" [active]="optimizeRLA.isActive">Optimizer</a>
 </nav>
 <mat-tab-nav-panel #tabPanel><router-outlet></router-outlet></mat-tab-nav-panel>

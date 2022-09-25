@@ -16,6 +16,7 @@ import { WorkshopComponent } from './workshop/workshop.component';
 import { ProductTreeComponent } from './product-tree/product-tree.component';
 import { ProductTreePageComponent } from './product-tree-page/product-tree-page.component';
 import { SupplyDemandPageComponent } from './supply-demand-page/supply-demand-page.component';
+import { OptimizeComponent } from './optimize/optimize.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SupplyDemandPageComponent } from './supply-demand-page/supply-demand-pa
     WorkshopComponent,
     ProductTreeComponent,
     ProductTreePageComponent,
-    SupplyDemandPageComponent
+    SupplyDemandPageComponent,
+    OptimizeComponent
   ],
   imports: [
     BrowserModule,

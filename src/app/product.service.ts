@@ -1,6 +1,24 @@
 import { Injectable } from '@angular/core';
 import productData from './product.data.json';
 
+interface CatalogEntry {
+  categories: string[];
+  value: number;
+  time: number;
+}
+
+export interface OptimizerResult {
+  products: Product[];
+  value: number;
+  time: number;
+}
+
+interface OptimizedMessageResult {
+  products: string[];
+  value: number;
+  time: number;
+}
+
 /**
  * This is simply a generic type for everything that can modify a product.
  */
@@ -273,6 +291,14 @@ export class Product {
     const ds = state['ds'];
     this.demandShift = typeof ds === 'string' ? DemandShift.withId(ds, DemandShift.none) : DemandShift.none;
   }
+
+  toCatalogEntry(): CatalogEntry {
+    return {
+      categories: this.categories.map(e => e.id),
+      value: this.value,
+      time: this.time
+    };
+  }
 }
 
 export class Category {
@@ -300,6 +326,7 @@ export class ProductService {
   _productList: Product[];
   _categories: Map<string, Category>;
   _optimizerWorker?: Worker;
+  _pendingResolves: ((value: OptimizerResult[]) => void)[] = [];
   /**
    * Workshop tier for calculating the value of products.
    */
@@ -334,15 +361,37 @@ export class ProductService {
       // Create a new
       this._optimizerWorker = new Worker(new URL('./product.worker', import.meta.url));
       this._optimizerWorker.onmessage = ({ data }) => {
-        console.log(`page got message: ${data}`);
+        if (typeof data === 'object' && data != null && data.type === 'optimized') {
+          // Slice off the top of the resolve FIFO
+          const resolve = this._pendingResolves.shift();
+          if (resolve) {
+            resolve((data.results as OptimizedMessageResult[]).map(result => {
+              return {
+                products: result.products.map(e => this._products[e]),
+                value: result.value,
+                time: result.time
+              };
+            }));
+          } else {
+            console.error('Got response with no pending resolves left!');
+          }
+        }
       };
-      this._optimizerWorker.postMessage('hello');
     } else {
       // Web Workers are not supported in this environment. The fallback would be doing
       // optimization calculations within the main thread, which is - not optimal. So
       // just don't support it for now.
     }
+  }
 
+  optimize(): Promise<OptimizerResult[]> {
+    return new Promise<OptimizerResult[]>((resolve) => {
+      this._optimizerWorker?.postMessage({
+        type: 'catalog',
+        catalog: this.createCatalog()
+      });
+      this._pendingResolves.push(resolve);
+    });
   }
 
   /**
@@ -476,5 +525,13 @@ export class ProductService {
       product.supply = Supply.sufficient;
       product.predictedDemand = Popularity.average;
     }
+  }
+
+  createCatalog(): Record<string, CatalogEntry> {
+    const result: Record<string, CatalogEntry> = {};
+    for (const product of this._productList) {
+      result[product.id] = product.toCatalogEntry();
+    }
+    return result;
   }
 }

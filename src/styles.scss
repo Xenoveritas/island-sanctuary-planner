@@ -38,7 +38,6 @@ $island-sanctuary-planner-theme: mat.define-light-theme((
 @include mat.form-field-theme($island-sanctuary-planner-theme);
 @include mat.icon-theme($island-sanctuary-planner-theme);
 @include mat.input-theme($island-sanctuary-planner-theme);
-@include mat.menu-theme($island-sanctuary-planner-theme);
 @include mat.select-theme($island-sanctuary-planner-theme);
 @include mat.sort-theme($island-sanctuary-planner-theme);
 @include mat.tabs-theme($island-sanctuary-planner-theme);
@@ -70,5 +69,28 @@ mat-icon[data-mat-icon-name^=supply-] {
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     width: 200px;
+  }
+}
+
+.product-select-backdrop {
+  background: transparent;
+}
+
+.product-select-panel {
+  // use existing panel styles
+  @extend .mat-select-panel;
+  border-radius: 4px;
+  .product-select-panel-wrap {
+    width: 100%;
+  }
+  .product-option {
+    @extend .mat-option;
+    font-size: 14px;
+    line-height: 36px;
+    height: 36px;
+    padding: 0 16px;
+    mat-icon {
+      vertical-align: middle;
+    }
   }
 }

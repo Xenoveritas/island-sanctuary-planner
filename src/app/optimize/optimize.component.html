@@ -1,7 +1,17 @@
 <p *ngIf="!results">Calculating...</p>
-<ul *ngIf="results">
-  <li *ngFor="let result of results">
-    <span *ngFor="let product of result.products; let i = index">{{ i > 0 ? ', ' : ''}}{{ product.name }}</span>
-    {{result.value}}, {{result.time}} hours
-  </li>
-</ul>
+<!-- TODO: Make this a "real" Material table (would allow sorting/pagination/other fun things) -->
+<table *ngIf="results" class="full-width-table" matSort aria-label="Elements">
+  <thead>
+    <tr><th>Products</th><th>Cowries</th><th>Time</th><th>Groove</th></tr>
+  </thead>
+  <tr class="result" *ngFor="let result of results">
+    <td>
+      <ul class="product-list">
+        <li *ngFor="let product of result.products; let i = index">{{ product.name }}</li>
+      </ul>
+    </td>
+    <td>{{result.value}} cowries</td>
+    <td>{{result.time}} hours</td>
+    <td>{{result.groove}}</td>
+  </tr>
+</table>

@@ -1,0 +1,22 @@
+.product-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    background: var(--unselected-chip-background);
+    margin: 0 0.5em;
+    padding: 0.25em 1em;
+    border-radius: 2em;
+  }
+  // FIXME: This is horrible and should be replaced with something better
+  li::before {
+    content: '>';
+    display: block;
+    position: absolute;
+    margin-left: -18pt;
+  }
+  li:first-child::before {
+    content: '';
+  }
+}

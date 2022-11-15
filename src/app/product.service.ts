@@ -5,18 +5,22 @@ interface CatalogEntry {
   categories: string[];
   value: number;
   time: number;
+  popularity: number;
+  supply: number;
 }
 
 export interface OptimizerResult {
   products: Product[];
   value: number;
   time: number;
+  groove: number;
 }
 
 interface OptimizedMessageResult {
   products: string[];
   value: number;
   time: number;
+  groove: number;
 }
 
 /**
@@ -296,7 +300,9 @@ export class Product {
     return {
       categories: this.categories.map(e => e.id),
       value: this.value,
-      time: this.time
+      time: this.time,
+      popularity: this.popularity.order,
+      supply: this.supply.order
     };
   }
 }
@@ -334,7 +340,7 @@ export class ProductService {
   /**
    * Groove for calculating the value of products.
    */
-  groove: number = 1;
+  groove: number = 0;
 
   get workshopModifier(): number { return this.workshopTier.modifier ?? 1; }
 
@@ -369,7 +375,8 @@ export class ProductService {
               return {
                 products: result.products.map(e => this._products[e]),
                 value: result.value,
-                time: result.time
+                time: result.time,
+                groove: result.groove
               };
             }));
           } else {
@@ -389,6 +396,14 @@ export class ProductService {
       this._optimizerWorker?.postMessage({
         type: 'catalog',
         catalog: this.createCatalog()
+      });
+      // Because we're just sending messages, we can immediately send the message to request
+      // an optimize pass.
+      this._optimizerWorker?.postMessage({
+        type: 'optimize',
+        groove: this.groove,
+        maxGroove: 35, // FIXME: Should be based on rank
+        workshops: [ this.workshopModifier ], // FIXME: Should allow it to be set
       });
       this._pendingResolves.push(resolve);
     });

@@ -21,15 +21,34 @@
     <mat-card-title>Settings</mat-card-title>
     <mat-card-content>
       <p>
-        These settings determine the modifiers applied to the base value when
-        calculating a final value, making the value shown more accurately reflect
-        what the mammets will generate. However, for relative values, they need not
-        be exact.
+        These are used by the optimizer to produce a production schedule based on your current island.
       </p>
       <p>
         <mat-form-field appearance="fill">
-          <mat-label>Workshop Tier</mat-label>
-          <mat-select [formControl]="workshopTier">
+          <mat-label>Island Rank</mat-label>
+          <mat-select [formControl]="islandRank">
+            <mat-option *ngFor="let rank of islandRanks" [value]="rank">Rank {{rank}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Workshop 1 Tier</mat-label>
+          <mat-select [formControl]="workshop1Tier">
+            <mat-option *ngFor="let tier of workshopTiers" [value]="tier.id">{{tier.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Workshop 2 Tier</mat-label>
+          <mat-select [formControl]="workshop2Tier">
+            <mat-option value="none">Unbuilt</mat-option>
+            <mat-option *ngFor="let tier of workshopTiers" [value]="tier.id">{{tier.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Workshop 3 Tier</mat-label>
+          <mat-select [formControl]="workshop3Tier">
+            <mat-option value="none">Unbuilt</mat-option>
             <mat-option *ngFor="let tier of workshopTiers" [value]="tier.id">{{tier.name}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -37,13 +56,13 @@
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Groove</mat-label>
-          <input matInput type="number" min="1" max="35" [formControl]="groove">
+          <input matInput type="number" min="0" max="35" [formControl]="groove">
         </mat-form-field>
       </p>
       <p>
         <button
           mat-raised-button
-          matTooltip="Resetting for the next Season resets Groove to 1, all Supply to Sufficient, and all Demand Shift to None"
+          matTooltip="Resetting for the next Season resets Groove to 0, all Supply to Sufficient, and all Demand Shift to None"
           (click)="resetForNextSeason()"
           color="primary">Reset for Next Season</button>
       </p>

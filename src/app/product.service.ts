@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IslandService } from './island.service';
 import productData from './product.data.json';
 
 interface CatalogEntry {
@@ -116,32 +117,6 @@ export class DemandShift {
   }
 }
 
-export class WorkshopTier implements ProductModifier {
-  constructor(
-    public readonly id: string,
-    public readonly name: string,
-    public readonly order: number,
-    public readonly modifier: number
-  ) {}
-
-  /**
-   * Gets the rank (alias for the order)
-   */
-  get rank() { return this.order; }
-
-  static fromId(id: string): WorkshopTier | undefined {
-    return WORKSHOPS[id];
-  }
-}
-
-const WORKSHOPS: Record<string, WorkshopTier> = {
-  'workshop-1': new WorkshopTier('workshop-1', 'Workshop I', 1, 1),
-  'workshop-2': new WorkshopTier('workshop-2', 'Workshop II', 2, 1.1),
-  'workshop-3': new WorkshopTier('workshop-3', 'Workshop III', 3, 1.2)
-};
-
-export const WORKSHOP_TIER_LEVELS: WorkshopTier[] = Array.from(Object.values(WORKSHOPS));
-
 export type PersistedProductState = {
   p?: string;
   s?: string;
@@ -203,7 +178,7 @@ export class Product {
   }
 
   get value(): number {
-    return this.getModifiedValue(this.service.workshopTier, this.service.groove);
+    return this.getModifiedValue(this.service.workshopModifier, this.service.groove);
   }
 
   get valueOverTime(): number {
@@ -244,12 +219,12 @@ export class Product {
 
   /**
    * Returns the value, as modified by any settings given.
-   * @param tier the workshop tier being used (or undefined to use 1)
+   * @param workshopModifier the modifier from the workshop, or 1
+   * @param groove the current island groove, or 1
    */
-  getModifiedValue(tier?: WorkshopTier, groove?: number): number {
-    const workshopModifier = tier?.modifier ?? 1;
+  getModifiedValue(workshopModifier?: number, groove?: number): number {
     const grooveModifier = typeof groove === 'number' ? (1+(groove/100)) : 1;
-    return Math.floor(this.popularityModifier * this.supplyModifier * Math.floor(this.baseValue * workshopModifier * grooveModifier));
+    return Math.floor(this.popularityModifier * this.supplyModifier * Math.floor(this.baseValue * (workshopModifier ?? 1) * grooveModifier));
   }
 
   /**
@@ -299,7 +274,7 @@ export class Product {
   toCatalogEntry(): CatalogEntry {
     return {
       categories: this.categories.map(e => e.id),
-      value: this.value,
+      value: this.baseValue,
       time: this.time,
       popularity: this.popularity.order,
       supply: this.supply.order
@@ -319,9 +294,11 @@ export type ProductServiceState = {
 }
 
 export const MAX_GROOVE = 35;
+export const MAX_ISLAND_RANK = 10;
+export const MAX_LANDMARKS = 4;
 
 /**
- * This service manages the list of products and their current popularity level.
+ * This service manages the list of products and their current popularity and supply level.
  */
 @Injectable({
   providedIn: 'root'
@@ -334,17 +311,23 @@ export class ProductService {
   _optimizerWorker?: Worker;
   _pendingResolves: ((value: OptimizerResult[]) => void)[] = [];
   /**
-   * Workshop tier for calculating the value of products.
-   */
-  workshopTier = WORKSHOP_TIER_LEVELS[0];
-  /**
    * Groove for calculating the value of products.
    */
   groove: number = 0;
 
-  get workshopModifier(): number { return this.workshopTier.modifier ?? 1; }
+  /**
+   * Gets the current workshop modifier. This is currently whatever the lowest
+   * workshop modifier return by the island service, or 1 if no workshops have
+   * been built.
+   */
+  get workshopModifier(): number {
+    return this.islandService.workshopModifiers.reduce(
+      (lowestModifier, currentModifier) => Math.min(lowestModifier, currentModifier),
+      1
+    );
+  }
 
-  constructor() {
+  constructor(public readonly islandService: IslandService) {
     this._products = {};
     this._productsByCategory = {};
     this._productList = [];
@@ -393,6 +376,9 @@ export class ProductService {
 
   optimize(): Promise<OptimizerResult[]> {
     return new Promise<OptimizerResult[]>((resolve) => {
+      // The catalog and optimize request are sent as separate messages in the theory that
+      // (most) of the catalog data only needs to be sent once. However it currently also
+      // contains the popularity/supply data...
       this._optimizerWorker?.postMessage({
         type: 'catalog',
         catalog: this.createCatalog()
@@ -403,7 +389,7 @@ export class ProductService {
         type: 'optimize',
         groove: this.groove,
         maxGroove: 35, // FIXME: Should be based on rank
-        workshops: [ this.workshopModifier ], // FIXME: Should allow it to be set
+        workshops: this.islandService.workshopModifiers
       });
       this._pendingResolves.push(resolve);
     });
@@ -472,8 +458,8 @@ export class ProductService {
     }
     return JSON.stringify({
       products: products,
-      ws: this.workshopTier.id,
-      g: this.groove
+      g: this.groove,
+      i: this.islandService.createStorageState()
     });
   }
 
@@ -513,16 +499,13 @@ export class ProductService {
               }
             }
           }
-          const ws = stateObj['ws'];
-          if (typeof ws === 'string') {
-            const workshop = WorkshopTier.fromId(ws);
-            if (workshop) {
-              this.workshopTier = workshop;
-            }
-          }
           const g = stateObj['g'];
           if (typeof g === 'number' && g >= 1 && g <= MAX_GROOVE) {
             this.groove = Math.floor(g);
+          }
+          const i = stateObj['i'];
+          if (typeof i !== 'undefined') {
+            this.islandService.loadStorageState(i);
           }
         }
       } catch (ex) {

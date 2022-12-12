@@ -11,8 +11,8 @@
     <div class="label">Chains with:</div>
     <ul>
         <li *ngFor="let chained of chainedProducts" [ngClass]="createCSSClass(chained)">{{chained.name}}
-            <app-popularity-icon [popularity]="chained.popularity"></app-popularity-icon>
-            <app-supply-icon [supply]="chained.supply"></app-supply-icon>
+            <app-icon [popularity]="chained.popularity"></app-icon>
+            <app-icon [supply]="chained.supply"></app-icon>
             ({{chained.getModifiedValue()}}, {{(chained.getModifiedValue()/chained.time).toFixed(2)}}/h)
         </li>
     </ul>

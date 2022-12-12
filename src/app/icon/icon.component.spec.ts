@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SupplyIconComponent } from './supply-icon.component';
+import { IconComponent } from './icon.component';
 
-describe('SupplyIconComponent', () => {
-  let component: SupplyIconComponent;
-  let fixture: ComponentFixture<SupplyIconComponent>;
+describe('IconComponent', () => {
+  let component: IconComponent;
+  let fixture: ComponentFixture<IconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SupplyIconComponent ]
+      declarations: [ IconComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SupplyIconComponent);
+    fixture = TestBed.createComponent(IconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

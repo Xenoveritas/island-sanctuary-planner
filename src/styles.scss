@@ -94,3 +94,10 @@ mat-icon[data-mat-icon-name^=supply-] {
     }
   }
 }
+
+.product-details-panel {
+  @extend .mat-select-panel;
+  border-radius: 4px;
+  padding: 0.5em;
+  pointer-events: none;
+}

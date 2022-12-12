@@ -1,0 +1,6 @@
+<span *ngIf="showIcons"><app-icon [popularity]="product.popularity"></app-icon><app-icon [supply]="product.supply"></app-icon><app-icon [demandShift]="product.demandShift"></app-icon></span>
+{{product.name}}
+<ul *ngIf="showCategories" class="categories" aria-label="Categories">
+  <li class="mat-chip" *ngFor="let category of product.categories" [ngClass]="'category-' + category.id">{{category.name}}</li>
+</ul>
+<ng-template #popup><app-product-details [product]="product"></app-product-details></ng-template>

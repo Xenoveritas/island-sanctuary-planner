@@ -15,6 +15,7 @@ import { ProductTreeComponent } from './product-tree/product-tree.component';
 import { ProductTreePageComponent } from './product-tree-page/product-tree-page.component';
 import { SupplyDemandPageComponent } from './supply-demand-page/supply-demand-page.component';
 import { IconComponent } from './icon/icon.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { IconComponent } from './icon/icon.component';
     ProductTreeComponent,
     ProductTreePageComponent,
     SupplyDemandPageComponent,
-    IconComponent
+    IconComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

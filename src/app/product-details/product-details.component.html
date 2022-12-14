@@ -1,18 +1,16 @@
-<div class="product-name">{{product.name}}</div>
-<!--
+<div class="product-name">{{product.name}} <span class="value">({{product.value}}, {{product.valueOverTime.toFixed(2)}}/hour)</span></div>
 <div class="product-categories">
     <div class="label">Categories:</div>
-    <div class="categories">
-        <span *ngFor="let category of product.categories; let i=index">{{i > 0 ? ', ' : ''}}{{category}}</span>
-    </div>
+    <ul class="categories">
+        <li *ngFor="let category of product.categories">{{category.name}}</li>
+    </ul>
 </div>
--->
 <div class="chains-with">
     <div class="label">Chains with:</div>
     <ul>
         <li *ngFor="let chained of chainedProducts" [ngClass]="createCSSClass(chained)">{{chained.name}}
-            <app-popularity-icon [popularity]="chained.popularity"></app-popularity-icon>
-            <app-supply-icon [supply]="chained.supply"></app-supply-icon>
+            <app-icon [popularity]="chained.popularity"></app-icon>
+            <app-icon [supply]="chained.supply"></app-icon>
             ({{chained.getModifiedValue()}}, {{(chained.getModifiedValue()/chained.time).toFixed(2)}}/h)
         </li>
     </ul>

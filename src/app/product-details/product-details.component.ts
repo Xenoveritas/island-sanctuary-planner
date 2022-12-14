@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../product.service';
 
 /**
- * Displays details about the given product.
+ * Displays details about the given product. This is mostly intended to be used
+ * as a popup/tooltip.
  */
 @Component({
   selector: 'app-product-details',

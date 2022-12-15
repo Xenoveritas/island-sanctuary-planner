@@ -7,7 +7,7 @@
   <tr class="result" *ngFor="let result of results">
     <td>
       <ul class="product-list">
-        <li *ngFor="let product of result.products; let i = index">{{ product.name }}</li>
+        <li *ngFor="let product of result.products; let i = index"><app-product [product]="product" [showIcons]="true"></app-product></li>
       </ul>
     </td>
     <td>{{result.value}} cowries</td>

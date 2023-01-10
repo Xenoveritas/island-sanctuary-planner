@@ -299,12 +299,41 @@
       "rank": 9, "value": 120, "time": 8,
       "ingredients": {"fang": 4, "quartz": 2, "log": 2},
       "categories": ["arms", "woodworks"]
+    },
+    "coral-sword": {
+      "name": "Isleworks Coral Sword",
+      "rank": 10, "value": 72, "time": 8,
+      "ingredients": {"coral": 3, "resin": 3, "palm-log": 2},
+      "categories": ["arms", "marine-merchandise"]
+    },
+    "coconut-juice": {
+      "name": "Isleworks Coconut Juice",
+      "rank": 10, "value": 36, "time": 4,
+      "ingredients": {"coconut": 2, "sugarcane": 2},
+      "categories": ["confections", "concoctions"]
+    },
+    "honey": {
+      "name": "Isleworks Honey",
+      "rank": 10, "value": 36, "time": 4,
+      "ingredients": {"behive-chip": 2, "sap": 2},
+      "categories": ["confections", "ingredients"]
+    },
+    "seashine-opal": {
+      "name": "Isleworks Seashine Opal",
+      "rank": 10, "value": 80, "time": 8,
+      "ingredients": {"wood-opal": 4, "sand": 4},
+      "categories": ["unburied-treasures"]
+    },
+    "dried-flowers": {
+      "name": "Isleworks Dired Flowers",
+      "rank": 10, "value": 54, "time": 6,
+      "ingredients": {"multicolored-blooms": 3, "coconut": 2, "sap": 1},
+      "categories": ["sundries", "furnishings"]
     }
   },
   "materials": {
     "gathered": {
       "palm-leaf": "Island Palm Leaf",
-      "apple": "Island Apple",
       "branch": "Island Branch",
       "stone": "Island Stone",
       "clam": "Island Clam",
@@ -329,7 +358,12 @@
       "leucogranite": "Leucogranite",
       "islefish": "Islefish",
       "squid": "Island Squid",
-      "jellyfish": "Island Jellyfish"
+      "jellyfish": "Island Jellyfish",
+      "multicolored-blooms": "Multicolored Isleblooms",
+      "resin": "Island Resin",
+      "coconut": "Island Coconut",
+      "beehive-chip": "Island Beehive Chip",
+      "wood-opal": "Island Wood Opal"
     },
     "granary": {
       "alyssum": "Island Alyssum",

@@ -29,7 +29,15 @@ islandData.workshop.modifiers.tier.forEach((modifier, idx) => {
 
 export const WORKSHOP_TIER_LEVELS: WorkshopTier[] = Array.from(Object.values(WORKSHOPS));
 
+/**
+ * The maximum number of workshops possible.
+ */
+// This reads strangely, but the "ranks" are the ranks workshops are unlocked at, so this is
+// counting the total number unlocked.
 export const MAX_WORKSHOPS = islandData.workshop.ranks.length;
+/**
+ * The maximum island rank.
+ */
 export const MAX_ISLAND_RANK = islandData.maxRank;
 export const MAX_LANDMARKS = islandData.landmark.ranks.length;
 
@@ -55,7 +63,7 @@ export class IslandService {
    */
   workshops: number[] = [];
   /**
-   * Island rank, currently from 1-10. Defaults to 3, as this app is useless below
+   * Island rank, currently from 1-12. Defaults to 3, as this app is useless below
    * that island rank anyway, and everything is a tutorial until rank 4 anyway.
    */
   islandRank: number = 3;

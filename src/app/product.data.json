@@ -325,7 +325,7 @@
       "categories": ["unburied-treasures"]
     },
     "dried-flowers": {
-      "name": "Isleworks Dired Flowers",
+      "name": "Isleworks Dried Flowers",
       "rank": 10, "value": 54, "time": 6,
       "ingredients": {"multicolored-blooms": 3, "coconut": 2, "sap": 1},
       "categories": ["sundries", "furnishings"]

@@ -2,7 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DemandShift, ProductService, Supply } from '../product.service';
-import { WorkshopTier, WORKSHOP_TIER_LEVELS } from '../island.service';
+import { MAX_ISLAND_RANK, WorkshopTier, WORKSHOP_TIER_LEVELS } from '../island.service';
+
+// Simple generator function to generate ranks. There's probably a better way
+// to do this but this works.
+function* islandRanks() {
+  for (let i = 1; i <= MAX_ISLAND_RANK; i++) {
+    yield i;
+  }
+}
 
 /**
  * Provides editing for workshop details.
@@ -15,8 +23,7 @@ import { WorkshopTier, WORKSHOP_TIER_LEVELS } from '../island.service';
 export class WorkshopComponent implements OnInit {
   workshopTiers: WorkshopTier[] = WORKSHOP_TIER_LEVELS;
   islandRank: FormControl<number>;
-  // Probably makes sense to do this programatically but also, whatever
-  islandRanks = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+  islandRanks = Array.from(islandRanks());
   workshop1Tier: FormControl<string>;
   workshop2Tier: FormControl<string>;
   workshop3Tier: FormControl<string>;

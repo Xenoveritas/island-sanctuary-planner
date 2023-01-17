@@ -55,9 +55,15 @@
       </p>
       <p>
         <mat-form-field appearance="fill">
+          <mat-label>Landmarks Built</mat-label>
+          <input matInput type="number" min="0" [max]="maxLandmarks" [formControl]="landmarks">
+        </mat-form-field> / {{maxLandmarks}}
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
           <mat-label>Groove</mat-label>
-          <input matInput type="number" min="0" max="35" [formControl]="groove">
-        </mat-form-field>
+          <input matInput type="number" min="0" [max]="maxGroove" [formControl]="groove">
+        </mat-form-field> / {{maxGroove}}
       </p>
       <p>
         <button

@@ -28,13 +28,20 @@ export class WorkshopComponent implements OnInit {
   workshop2Tier: FormControl<string>;
   workshop3Tier: FormControl<string>;
   groove: FormControl<number>;
+  landmarks: FormControl<number>;
+  maxGroove: number;
+  maxLandmarks: number;
 
   constructor(private productService: ProductService, private snackBar: MatSnackBar) {
-    this.islandRank = new FormControl<number>(this.productService.islandService.islandRank, {nonNullable: true});
+    const islandService = this.productService.islandService;
+    this.islandRank = new FormControl<number>(islandService.islandRank, {nonNullable: true});
     this.workshop1Tier = this._workshopControl(0);
     this.workshop2Tier = this._workshopControl(1);
     this.workshop3Tier = this._workshopControl(2);
     this.groove = new FormControl<number>(this.productService.groove, {nonNullable: true});
+    this.landmarks = new FormControl<number>(islandService.landmarkCount, {nonNullable: true});
+    this.maxGroove = islandService.maxGroove;
+    this.maxLandmarks = islandService.maxLandmarks;
   }
 
   _workshopControl(idx: number): FormControl<string> {
@@ -62,6 +69,12 @@ export class WorkshopComponent implements OnInit {
       this.productService.groove = value === null ? 0 : value;
       this.productService.storeState();
     });
+    this.landmarks.valueChanges.subscribe((value) => {
+      this.productService.islandService.landmarkCount = value;
+      // Changing this changes the max groove
+      this.maxGroove = this.productService.islandService.maxGroove;
+      this.productService.storeState();
+    });
     this.updateIslandRankState();
   }
 
@@ -70,7 +83,10 @@ export class WorkshopComponent implements OnInit {
    * This determines how many workshops and landmarks can currently be built.
    */
   updateIslandRankState() {
-    const maxWorkshops = this.productService.islandService.maxWorkshops;
+    const islandService = this.productService.islandService;
+    this.maxGroove = islandService.maxGroove;
+    this.maxLandmarks = islandService.maxLandmarks;
+    const maxWorkshops = islandService.maxWorkshops;
     if (maxWorkshops < 3) {
       this.workshop3Tier.disable();
     } else {

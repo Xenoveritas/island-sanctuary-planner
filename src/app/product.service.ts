@@ -388,7 +388,7 @@ export class ProductService {
       this._optimizerWorker?.postMessage({
         type: 'optimize',
         groove: this.groove,
-        maxGroove: 35, // FIXME: Should be based on rank
+        maxGroove: this.islandService.maxGroove,
         workshops: this.islandService.workshopModifiers
       });
       this._pendingResolves.push(resolve);

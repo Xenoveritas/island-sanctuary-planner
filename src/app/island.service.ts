@@ -85,6 +85,23 @@ export class IslandService {
   }
 
   /**
+   * Gets the total number of landmarks available at the current island rank.
+   * (Note that this can be 0.)
+   */
+  get maxLandmarks(): number {
+    // This could be a binary search but the data size is small
+    // Note that rank 3 adds two landmarks, the list is currently [3, 3, 5, 9]
+    // So Rank 3 returns 2 (the index of 5), Rank 5 returns 3, Rank 9 returns 4.
+    let i;
+    for (i = 0; i < islandData.landmark.ranks.length; i++) {
+      if (this.islandRank < islandData.landmark.ranks[i]) {
+        return i;
+      }
+    }
+    return i;
+  }
+
+  /**
    * Gets the total number of workshops available at the current island rank.
    * (Note that this can be 0.)
    */
@@ -180,7 +197,7 @@ export class IslandService {
         }
       }
       this.islandRank = clampInt(state['r'], 1, MAX_ISLAND_RANK + 1, this.islandRank);
-      this.landmarkCount = clampInt(state['l'], 0, MAX_LANDMARKS, this.landmarkCount);
+      this.landmarkCount = clampInt(state['l'], 0, MAX_LANDMARKS + 1, this.landmarkCount);
     }
   }
 }

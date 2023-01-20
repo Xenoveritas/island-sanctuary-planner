@@ -329,6 +329,36 @@
       "rank": 10, "value": 54, "time": 6,
       "ingredients": {"multicolored-blooms": 3, "coconut": 2, "sap": 1},
       "categories": ["sundries", "furnishings"]
+    },
+    "powdered-paprika": {
+      "name": "Isleworks Powdered Paprika",
+      "rank": 11, "value": 52, "time": 4,
+      "ingredients": {"paprika": 2, "islewort": 2},
+      "categories": ["ingredients", "concoctions"]
+    },
+    "cawl-cennin": {
+      "name": "Isleworks Cawl Cennin",
+      "rank": 11, "value": 90, "time": 6,
+      "ingredients": {"leek": 3, "milk": 1, "laver": 3},
+      "categories": ["concoctions", "creature-creations"]
+    },
+    "isloaf": {
+      "name": "Isleworks Isloaf",
+      "rank": 11, "value": 52, "time": 4,
+      "ingredients": {"wheat": 2, "islefish": 1, "rock-salt": 1},
+      "categories": ["foodstuffs", "concoctions"]
+    },
+    "popoto-salad": {
+      "name": "Isleworks Popoto Salad",
+      "rank": 11, "value": 52, "time": 4,
+      "ingredients": {"popoto": 2, "apple": 1, "islewort": 1},
+      "categories": ["foodstuffs"]
+    },
+    "dressing": {
+      "name": "Isleworks Dressing",
+      "rank": 11, "value": 52, "time": 4,
+      "ingredients": {"onion": 2, "sap": 1, "laver": 1},
+      "categories": ["ingredients"]
     }
   },
   "materials": {
@@ -382,7 +412,9 @@
       "wheat": "Island Wheat",
       "corn": "Island Corn",
       "parsnip": "Island Parsnip",
-      "radish": "Island Radish"
+      "radish": "Island Radish",
+      "paprika": "Island Paprika",
+      "leek": "Island Leek"
     },
     "leavings": {
       "fleece": "Sanctuary Fleece",

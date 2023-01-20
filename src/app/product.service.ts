@@ -140,6 +140,10 @@ export class Product {
   readonly categories: Category[];
   readonly ingredients: Record<string, number>;
   /**
+   * Island rank required to make this product. Currently defaults to 1, which is technically wrong.
+   */
+  readonly rank: number;
+  /**
    * Popularity. Defaults to "average."
    */
   popularity = Popularity.average;
@@ -189,12 +193,14 @@ export class Product {
     name: string,
     value: number,
     time: number,
+    rank?: number,
     categories: string[],
     ingredients: Record<string, number|undefined>
   }, public readonly service: ProductService) {
     this.name = json.name;
     this.baseValue = json.value;
     this.time = json.time;
+    this.rank = json.rank ?? 1;
     this.categories = json.categories.map((categoryId) => {
       const category = this.service.getCategory(categoryId);
       if (typeof category === 'undefined') {
@@ -396,24 +402,30 @@ export class ProductService {
   }
 
   /**
-   * Gets a copy of the product array in in-game order.
-   * @returns a copy of the product array in in-game order
+   * Gets a filtered version of the product array based on the current island rank.
+   * @returns currently available products
    */
   getProductList(): Product[] {
-    // slice(0) clones the array
-    return this._productList.slice(0);
+    const rank = this.islandService.islandRank;
+    return this._productList.filter((product) => product.rank <= rank);
   }
 
   getCategory(id: string): Category | undefined {
     return this._categories.get(id);
   }
 
+  /**
+   * Gets the products within the given category, filtered by rank.
+   * @param category the category or category ID
+   * @returns
+   */
   getProductsInCategory(category: string | Category): Product[] {
     if (typeof category === 'object') {
       category = category.id;
     }
     if (category in this._productsByCategory) {
-      return this._productsByCategory[category].slice(0);
+      const rank = this.islandService.islandRank;
+      return this._productsByCategory[category].filter((product) => product.rank <= rank);
     } else {
       return [];
     }
@@ -432,12 +444,14 @@ export class ProductService {
       return [];
     }
     // Otherwise, we need to remove duplicates, so just create a set of IDs
+    const rank = this.islandService.islandRank;
     const resultIds = new Set<string>(categories.reduce<string[]>((result, category) => {
       if (typeof category === 'object') {
         category = category.id;
       }
       if (category in this._productsByCategory) {
-        result.push(...this._productsByCategory[category].map(p => p.id));
+        // Add products currently available and then map to the ID
+        result.push(...this._productsByCategory[category].filter(p => p.rank <= rank).map(p => p.id));
       }
       return result;
     }, []));
@@ -527,8 +541,11 @@ export class ProductService {
 
   createCatalog(): Record<string, CatalogEntry> {
     const result: Record<string, CatalogEntry> = {};
+    const rank = this.islandService.islandRank;
     for (const product of this._productList) {
-      result[product.id] = product.toCatalogEntry();
+      if (product.rank <= rank) {
+        result[product.id] = product.toCatalogEntry();
+      }
     }
     return result;
   }

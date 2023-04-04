@@ -194,13 +194,15 @@ export class Product {
     value: number,
     time: number,
     rank?: number,
+    "rank?"?: number,
     categories: string[],
     ingredients: Record<string, number|undefined>
   }, public readonly service: ProductService) {
     this.name = json.name;
     this.baseValue = json.value;
     this.time = json.time;
-    this.rank = json.rank ?? 1;
+    // For now, there's also a "rank?" field that indicates probable but unknown ranks
+    this.rank = json.rank ?? json["rank?"] ?? 1;
     this.categories = json.categories.map((categoryId) => {
       const category = this.service.getCategory(categoryId);
       if (typeof category === 'undefined') {

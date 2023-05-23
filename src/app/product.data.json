@@ -359,6 +359,30 @@
       "rank": 11, "value": 52, "time": 4,
       "ingredients": {"onion": 2, "sap": 1, "laver": 1},
       "categories": ["ingredients"]
+    },
+    "stove": {
+      "name": "Isleworks Stove",
+      "rank": 12, "value": 54, "time": 6,
+      "ingredients": {"coal": 2, "iron-ore": 3, "leucogranite": 1},
+      "categories": ["furnishings", "metalworks"]
+    },
+    "lantern": {
+      "name": "Isleworks Lantern",
+      "rank": 12, "value": 80, "time": 8,
+      "ingredients": {"glimshroom": 3, "quartz": 3, "copper-ore": 2},
+      "categories": ["sundries"]
+    },
+    "natron": {
+      "name": "Isleworks Natron",
+      "rank": 12, "value": 36, "time": 4,
+      "ingredients": {"effervescent-water": 2, "rock-salt": 2},
+      "categories": ["sundries", "concoctions"]
+    },
+    "bouillabaisse": {
+      "name": "Isleworks Bouillabaisse",
+      "rank": 12, "value": 136, "time": 8,
+      "ingredients": {"cave-shrimp": 2, "clam": 2, "squid": 2, "tomato": 2},
+      "categories": ["foodstuffs", "marine-merchandise"]
     }
   },
   "materials": {
@@ -397,14 +421,27 @@
       "resin": "Island Resin",
       "coconut": "Island Coconut",
       "beehive-chip": "Island Beehive Chip",
-      "wood-opal": "Island Wood Opal"
+      "wood-opal": "Island Wood Opal",
+      "glimshroom": {
+        "name": "Island Glimshroom",
+        "rank": 12
+      },
+      "coal": {
+        "name": "Island Coal",
+        "rank": 12
+      },
+      "effervescent-water": {
+        "name": "Island Effervescent Water",
+        "rank": 12
+      }
     },
     "granary": {
       "alyssum": "Island Alyssum",
       "raw-garnet": "Raw Island Garnet",
       "spruce-log": "Island Spruce Log",
       "hammerhead": "Island Hammerhead",
-      "silver-ore": "Island Silver Ore"
+      "silver-ore": "Island Silver Ore",
+      "cave-shrimp": "Island Cave Shrimp"
     },
     "produce": {
       "popoto": "Island Popoto",

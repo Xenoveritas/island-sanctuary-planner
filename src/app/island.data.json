@@ -1,5 +1,5 @@
 {
-  "maxRank": 12,
+  "maxRank": 16,
   "workshop": {
     "modifiers": {
       "tier": [ 1, 1.1, 1.2 ],

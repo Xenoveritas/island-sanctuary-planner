@@ -14,7 +14,7 @@
     "ranks": [ 3, 6, 8 ]
   },
   "granary": {
-    "ranks": [ 5, 6, 8]
+    "ranks": [ 5, 6, 8, 13]
   },
   "pasture": {
     "ranks": [ 2, 4, 7 ]

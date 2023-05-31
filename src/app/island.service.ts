@@ -33,7 +33,7 @@ export const WORKSHOP_TIER_LEVELS: WorkshopTier[] = Array.from(Object.values(WOR
  * The maximum number of workshops possible.
  */
 // This reads strangely, but the "ranks" are the ranks workshops are unlocked at, so this is
-// counting the total number unlocked.
+// counting the total number unlockable.
 export const MAX_WORKSHOPS = islandData.workshop.ranks.length;
 /**
  * The maximum island rank.

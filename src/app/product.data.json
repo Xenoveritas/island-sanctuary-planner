@@ -407,6 +407,30 @@
       "rank": 13, "value": 80, "time": 8,
       "ingredients": {"spectrine": 4, "sand": 4},
       "categories": ["unburied-treasures"]
+    },
+    "runner-bean-saute": {
+      "name": "Isleworks Runner Bean Saute",
+      "rank": 14, "value": 52, "time": 4,
+      "ingredients": {"runner-beans": 2, "rock-salt": 2},
+      "categories": ["foodstuffs"]
+    },
+    "beet-soup": {
+      "name": "Isleworks Beet Soup",
+      "rank": 14, "value": 78, "time": 6,
+      "ingredients": {"beet": 3, "popoto": 1, "milk": 1},
+      "categories": ["foodstuffs"]
+    },
+    "imam-bayildia": {
+      "name": "Isleworks Imam Bayildi",
+      "rank": 14, "value": 90, "time": 6,
+      "ingredients": {"eggplant": 2, "onion": 2, "tomato": 2},
+      "categories": ["foodstuffs"]
+    },
+    "pickled-zucchini": {
+      "name": "Isleworks Pickled Zucchini",
+      "rank": 14, "value": 104, "time": 8,
+      "ingredients": {"zucchini": 4, "laver": 2, "sugarcane": 2},
+      "categories": ["preserved-food"]
     }
   },
   "materials": {
@@ -495,7 +519,23 @@
       "parsnip": "Island Parsnip",
       "radish": "Island Radish",
       "paprika": "Island Paprika",
-      "leek": "Island Leek"
+      "leek": "Island Leek",
+      "runner-beans": {
+        "name": "Island Runner Beans",
+        "rank": 14
+      },
+      "beet": {
+        "name": "Island Beet",
+        "rank": 14
+      },
+      "eggplant": {
+        "name": "Island Eggplant",
+        "rank": 14
+      },
+      "zucchini": {
+        "name": "Island Zucchini",
+        "rank": 14
+      }
     },
     "leavings": {
       "fleece": "Sanctuary Fleece",

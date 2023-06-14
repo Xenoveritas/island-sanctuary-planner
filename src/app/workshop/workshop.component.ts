@@ -27,6 +27,7 @@ export class WorkshopComponent implements OnInit {
   workshop1Tier: FormControl<string>;
   workshop2Tier: FormControl<string>;
   workshop3Tier: FormControl<string>;
+  workshop4Tier: FormControl<string>;
   groove: FormControl<number>;
   landmarks: FormControl<number>;
   maxGroove: number;
@@ -38,6 +39,7 @@ export class WorkshopComponent implements OnInit {
     this.workshop1Tier = this._workshopControl(0);
     this.workshop2Tier = this._workshopControl(1);
     this.workshop3Tier = this._workshopControl(2);
+    this.workshop4Tier = this._workshopControl(3);
     this.groove = new FormControl<number>(this.productService.groove, {nonNullable: true});
     this.landmarks = new FormControl<number>(islandService.landmarkCount, {nonNullable: true});
     this.maxGroove = islandService.maxGroove;
@@ -87,6 +89,11 @@ export class WorkshopComponent implements OnInit {
     this.maxGroove = islandService.maxGroove;
     this.maxLandmarks = islandService.maxLandmarks;
     const maxWorkshops = islandService.maxWorkshops;
+    if (maxWorkshops < 4) {
+      this.workshop4Tier.disable();
+    } else {
+      this.workshop4Tier.enable();
+    }
     if (maxWorkshops < 3) {
       this.workshop3Tier.disable();
     } else {

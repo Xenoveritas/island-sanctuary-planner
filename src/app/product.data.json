@@ -14,7 +14,7 @@
     },
     "wooden-chair": {
       "name": "Isleworks Wooden Chair",
-      "rank?": 3, "value": 41, "time": 6,
+      "rank?": 3, "value": 42, "time": 6,
       "ingredients": {"log": 4, "vine": 2},
       "categories": ["furnishings", "woodworks"]
     },
@@ -32,19 +32,19 @@
     },
     "coral-ring": {
       "name": "Isleworks Coral Ring",
-      "rank?": 3, "value": 41, "time": 6,
+      "rank?": 3, "value": 42, "time": 6,
       "ingredients": {"coral": 3, "vine": 3},
       "categories": ["accessories", "marine-merchandise"]
     },
     "barbut": {
       "name": "Isleworks Barbut",
-      "rank?": 3, "value": 41, "time": 6,
+      "rank?": 3, "value": 42, "time": 6,
       "ingredients": {"copper-ore": 3, "sand": 3},
       "categories": ["attire", "metalworks"]
     },
     "macuahuitl": {
       "name": "Isleworks Macuahuitl",
-      "rank?": 3, "value": 41, "time": 6,
+      "rank?": 3, "value": 42, "time": 6,
       "ingredients": {"palm-log": 3, "stone": 3},
       "categories": ["arms", "woodworks"]
     },
@@ -62,7 +62,7 @@
     },
     "tunic": {
       "name": "Isleworks Tunic",
-      "rank?": 3, "value": 71, "time": 6,
+      "rank?": 3, "value": 72, "time": 6,
       "ingredients": {"fleece": 2, "vine": 4},
       "categories": ["attire", "textiles"]
     },
@@ -86,7 +86,7 @@
     },
     "hora": {
       "name": "Isleworks Hora",
-      "rank?": 3, "value": 71, "time": 6,
+      "rank?": 3, "value": 72, "time": 6,
       "ingredients": {"carapace": 2, "stone": 4},
       "categories": ["arms", "creature-creations"]
     },
@@ -104,13 +104,13 @@
     },
     "brick-counter": {
       "name": "Isleworks Brick Counter",
-      "rank?": 5, "value": 47, "time": 6,
+      "rank?": 5, "value": 48, "time": 6,
       "ingredients": {"clay": 2, "limestone": 2, "palm-log": 2},
       "categories": ["furnishings", "unburied-treasures"]
     },
     "bronze-sheep": {
       "name": "Bronze Sheep",
-      "rank?": 5, "value": 63, "time": 8,
+      "rank?": 5, "value": 64, "time": 8,
       "ingredients": {"tinsand": 3, "copper-ore": 3, "log": 2},
       "categories": ["furnishings", "metalworks"]
     },
@@ -146,13 +146,13 @@
     },
     "sweet-popoto": {
       "name": "Isleworks Sweet Popoto",
-      "rank?": 3, "value": 71, "time": 6,
+      "rank?": 3, "value": 72, "time": 6,
       "ingredients": {"popoto": 2, "milk": 1, "sap": 3},
       "categories": ["confections"]
     },
     "parsnip-salad": {
       "name": "Isleworks Parsnip Salad",
-      "rank?": 3, "value": 47, "time": 4,
+      "rank?": 3, "value": 48, "time": 4,
       "ingredients": {"parsnip": 2, "islewort": 1, "sap": 1},
       "categories": ["foodstuffs"]
     },
@@ -164,7 +164,7 @@
     },
     "ribbon": {
       "name": "Isleworks Ribbon",
-      "rank?": 6, "value": 53, "time": 6,
+      "rank?": 6, "value": 54, "time": 6,
       "ingredients": {"cotton-boll": 2, "copper-ore": 2, "vine": 2},
       "categories": ["accessories", "textiles"]
     },
@@ -176,19 +176,19 @@
     },
     "cavaliers-hat": {
       "name": "Isleworks Cavalier's Hat",
-      "rank?": 6, "value": 80, "time": 6,
+      "rank?": 6, "value": 81, "time": 6,
       "ingredients": {"feather": 2, "cotton-boll": 2, "hemp": 2},
       "categories": ["attire", "textiles"]
     },
     "isleworks-horn": {
       "name": "Isleworks Horn",
-      "rank?": 6, "value": 80, "time": 6,
+      "rank?": 6, "value": 81, "time": 6,
       "ingredients": {"horn": 2, "clay": 2, "hemp": 2},
       "categories": ["sundries", "creature-creations"]
     },
     "salt-cod": {
       "name": "Isleworks Salt Cod",
-      "rank?": 7, "value": 53, "time": 6,
+      "rank?": 7, "value": 54, "time": 6,
       "ingredients": {"islefish": 4, "rock-salt": 2},
       "categories": ["preserved-food", "marine-merchandise"]
     },
@@ -200,73 +200,73 @@
     },
     "essential-draught": {
       "name": "Isleworks Essential Draught",
-      "rank?": 7, "value": 53, "time": 6,
+      "rank?": 7, "value": 54, "time": 6,
       "ingredients": {"jellyfish": 2, "palm-leaf": 2, "laver": 2},
       "categories": ["concoctions", "marine-merchandise"]
     },
     "jam": {
       "name": "Isleberry Jam",
-      "rank?": 7, "value": 77, "time": 6,
+      "rank?": 7, "value": 78, "time": 6,
       "ingredients": {"isleberry": 3, "sugarcane": 2, "sap": 1},
       "categories": ["ingredients"]
     },
     "tomato-relish": {
       "name": "Isleworks Tomato Relish",
-      "rank?": 6, "value": 51, "time": 4,
+      "rank?": 6, "value": 52, "time": 4,
       "ingredients": {"tomato": 2, "sugarcane": 1, "islewort": 1},
       "categories": ["ingredients"]
     },
     "onion-soup": {
       "name": "Isleworks Onion Soup",
-      "rank?": 7, "value": 77, "time": 6,
+      "rank?": 7, "value": 78, "time": 6,
       "ingredients": {"onion": 3, "rock-salt": 2, "islewort": 1},
       "categories": ["foodstuffs"]
     },
     "islefish-pie": {
       "name": "Islefish Pie",
-      "rank?": 7, "value": 77, "time": 6,
+      "rank?": 7, "value": 78, "time": 6,
       "ingredients": {"wheat": 3, "islefish": 2, "sugarcane": 1},
       "categories": ["confections", "marine-merchandise"]
     },
     "corn-flakes": {
       "name": "Isleworks Corn Flakes",
-      "rank?": 7, "value": 51, "time": 4,
+      "rank?": 7, "value": 52, "time": 4,
       "ingredients": {"corn": 2, "sugarcane": 2},
       "categories": ["preserved-food"]
     },
     "pickled-radish": {
       "name": "Isleworks Pickled Radish",
-      "rank?": 7, "value": 103, "time": 8,
+      "rank?": 7, "value": 104, "time": 8,
       "ingredients": {"radish": 4, "apple": 2, "sugarcane": 2},
       "categories": ["preserved-food"]
     },
     "iron-axe": {
       "name": "Isleworks Iron Axe",
-      "rank?": 8, "value": 71, "time": 8,
+      "rank?": 8, "value": 72, "time": 8,
       "ingredients": {"iron-ore": 3, "log": 3, "sand": 2},
       "categories": ["arms", "metalworks"]
     },
     "quartz-ring": {
       "name": "Isleworks Quartz Ring",
-      "rank?": 8, "value": 71, "time": 8,
+      "rank?": 8, "value": 72, "time": 8,
       "ingredients": {"quartz": 3, "iron-ore": 3, "stone": 2},
       "categories": ["accessories", "unburied-treasures"]
     },
     "porcelain-vace": {
       "name": "Isleworks Porcelain Vase",
-      "rank?": 8, "value": 71, "time": 8,
+      "rank?": 8, "value": 72, "time": 8,
       "ingredients": {"leucogranite": 3, "quartz": 3, "clay": 2},
       "categories": ["sundries", "unburied-treasures"]
     },
     "vegetable-juice": {
       "name": "Isleworks Vegetable Juice",
-      "rank?": 3, "value": 77, "time": 6,
+      "rank?": 3, "value": 78, "time": 6,
       "ingredients": {"cabbage": 3, "islewort": 2, "laver": 1},
       "categories": ["concoctions"]
     },
     "pumpkin-pudding": {
       "name": "Isleworks Pumpkin Pudding",
-      "rank?": 3, "value": 77, "time": 6,
+      "rank?": 3, "value": 78, "time": 6,
       "ingredients": {"pumpkin": 3, "egg": 1, "milk": 1},
       "categories": ["confections"]
     },

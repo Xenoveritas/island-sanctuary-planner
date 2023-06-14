@@ -52,6 +52,13 @@
             <mat-option *ngFor="let tier of workshopTiers" [value]="tier.id">{{tier.name}}</mat-option>
           </mat-select>
         </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Workshop 4 Tier</mat-label>
+          <mat-select [formControl]="workshop4Tier">
+            <mat-option value="none">Unbuilt</mat-option>
+            <mat-option *ngFor="let tier of workshopTiers" [value]="tier.id">{{tier.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="fill">

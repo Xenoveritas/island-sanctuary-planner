@@ -41,6 +41,8 @@ export const MAX_WORKSHOPS = islandData.workshop.ranks.length;
 export const MAX_ISLAND_RANK = islandData.maxRank;
 export const MAX_LANDMARKS = islandData.landmark.ranks.length;
 
+export const MAX_GROOVE = islandData.landmark.maxGroove[islandData.landmark.maxGroove.length-1];
+
 function clampInt(value: unknown, min: number, max: number, defaultValue?: number): number {
   if (typeof value === 'number') {
     if (value >= min && value < max) {

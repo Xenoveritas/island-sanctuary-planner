@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IslandService } from './island.service';
+import { IslandService, MAX_GROOVE } from './island.service';
 import productData from './product.data.json';
 
 interface CatalogEntry {
@@ -300,10 +300,6 @@ export type ProductServiceState = {
   ws: string;
   g: number;
 }
-
-export const MAX_GROOVE = 35;
-export const MAX_ISLAND_RANK = 10;
-export const MAX_LANDMARKS = 4;
 
 /**
  * This service manages the list of products and their current popularity and supply level.

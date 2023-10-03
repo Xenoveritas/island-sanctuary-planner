@@ -431,6 +431,18 @@
       "rank": 14, "value": 104, "time": 8,
       "ingredients": {"zucchini": 4, "laver": 2, "sugarcane": 2},
       "categories": ["preserved-food"]
+    },
+    "brass-serving-dish": {
+      "name": "Isleworks Brass Serving Dish",
+      "rank": 16, "value": 46, "time": 4,
+      "ingredients": {"yellow-copper-ore": 2, "copper-ore": 2},
+      "categories": ["sundries", "metalworks"]
+    },
+    "grinding-wheel": {
+      "name": "Island Grinding Wheel",
+      "rank": 16, "value": 78, "time": 6,
+      "ingredients": {"hawks-eye-sand": 2, "mythril-ore": 2, "sand": 2},
+      "categories": ["sundries"]
     }
   },
   "materials": {
@@ -497,6 +509,14 @@
       "spectrine": {
         "name": "Island Spectrine",
         "rank": 13
+      },
+      "yellow-copper-ore": {
+        "name": "Island Yellow Copper Ore",
+        "rank": 16
+      },
+      "hawks-eye-sand": {
+        "name": "Island Hawk's Eye Sand",
+        "rank": 16
       }
     },
     "granary": {

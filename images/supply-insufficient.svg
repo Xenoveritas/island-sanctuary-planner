@@ -7,7 +7,7 @@
    viewBox="0 0 24 24"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="supply-insufficient.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,14 +25,14 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="41.403919"
-     inkscape:cx="17.111907"
+     inkscape:cx="11.17044"
      inkscape:cy="10.07151"
      inkscape:window-width="2560"
-     inkscape:window-height="1387"
+     inkscape:window-height="1369"
      inkscape:window-x="2552"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showguides="true">
     <inkscape:grid
        type="xygrid"
@@ -64,11 +64,50 @@
        inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
-     id="defs2" />
+     id="defs2"/>
   <g
-     inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer2"
+     inkscape:label="None">
+     <g style="fill:none;stroke:#000000;stroke-width:0.865;stroke-opacity:0.6">
+    <path
+       id="none-pip"
+       d="M 2 10.5 a 1.5 1.5 0 0 0 -1.5 1.5 a 1.5 1.5 0 0 0 1.5 1.5 l 5 0 a 1.5 1.5 0 0 0 1.5 -1.5 a 1.5 1.5 0 0 0 -1.5 -1.5 l -5 0 z " />
+    <path
+       id="none-pip-45"
+       transform="rotate(45 12 12)"
+       d="M 2 10.5 a 1.5 1.5 0 0 0 -1.5 1.5 a 1.5 1.5 0 0 0 1.5 1.5 l 5 0 a 1.5 1.5 0 0 0 1.5 -1.5 a 1.5 1.5 0 0 0 -1.5 -1.5 l -5 0 z " />
+    <path
+       id="none-pip-90"
+       transform="rotate(90 12 12)"
+       d="M 2 10.5 a 1.5 1.5 0 0 0 -1.5 1.5 a 1.5 1.5 0 0 0 1.5 1.5 l 5 0 a 1.5 1.5 0 0 0 1.5 -1.5 a 1.5 1.5 0 0 0 -1.5 -1.5 l -5 0 z " />
+    <path
+       id="none-pip-135"
+       transform="rotate(135 12 12)"
+       d="M 2 10.5 a 1.5 1.5 0 0 0 -1.5 1.5 a 1.5 1.5 0 0 0 1.5 1.5 l 5 0 a 1.5 1.5 0 0 0 1.5 -1.5 a 1.5 1.5 0 0 0 -1.5 -1.5 l -5 0 z " />
+    <path
+       id="none-pip-180"
+       transform="rotate(180 12 12)"
+       d="M 2 10.5 a 1.5 1.5 0 0 0 -1.5 1.5 a 1.5 1.5 0 0 0 1.5 1.5 l 5 0 a 1.5 1.5 0 0 0 1.5 -1.5 a 1.5 1.5 0 0 0 -1.5 -1.5 l -5 0 z " />
+    <path
+       id="none-pip-225"
+       transform="rotate(225 12 12)"
+       d="M 2 10.5 a 1.5 1.5 0 0 0 -1.5 1.5 a 1.5 1.5 0 0 0 1.5 1.5 l 5 0 a 1.5 1.5 0 0 0 1.5 -1.5 a 1.5 1.5 0 0 0 -1.5 -1.5 l -5 0 z " />
+    <path
+       id="none-pip-270"
+       transform="rotate(270 12 12)"
+       d="M 2 10.5 a 1.5 1.5 0 0 0 -1.5 1.5 a 1.5 1.5 0 0 0 1.5 1.5 l 5 0 a 1.5 1.5 0 0 0 1.5 -1.5 a 1.5 1.5 0 0 0 -1.5 -1.5 l -5 0 z " />
+    <path
+       id="none-pip-315"
+       transform="rotate(315 12 12)"
+       d="M 2 10.5 a 1.5 1.5 0 0 0 -1.5 1.5 a 1.5 1.5 0 0 0 1.5 1.5 l 5 0 a 1.5 1.5 0 0 0 1.5 -1.5 a 1.5 1.5 0 0 0 -1.5 -1.5 l -5 0 z " />
+    </g>
+  </g>
+  <g
+     inkscape:label="Box"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:none">
     <path
        style="display:inline;fill:#debe94;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 0.5,15.5 v -7 l 6,-4 6,4 v 7 l -6,4 z"

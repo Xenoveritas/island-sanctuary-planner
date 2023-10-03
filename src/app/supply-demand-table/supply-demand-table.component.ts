@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
+import { MatLegacyTable as MatTable } from '@angular/material/legacy-table';
 import { SupplyDemandTableDataSource } from './supply-demand-table-datasource';
 import { Product, ProductService, Popularity, Supply, DemandShift } from '../product.service';
 

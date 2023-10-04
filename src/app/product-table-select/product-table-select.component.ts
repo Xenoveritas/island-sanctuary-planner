@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
-import { Overlay, OverlayPositionBuilder, OverlayRef, ScrollStrategyOptions } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { MatSelect } from '@angular/material/select';
 
 export type ProductTableSelectOption = {
   name: string;
@@ -19,7 +18,7 @@ export type MoveToNextEvent = 'row' | 'column';
   templateUrl: './product-table-select.component.html',
   styleUrls: ['./product-table-select.component.scss']
 })
-export class ProductTableSelectComponent implements AfterViewInit, OnInit {
+export class ProductTableSelectComponent implements OnInit {
   _options!: ProductTableSelectOption[];
   @Input() label!: string;
   @Input()
@@ -48,119 +47,16 @@ export class ProductTableSelectComponent implements AfterViewInit, OnInit {
    * <mat-icon> with svgIcon set to it.
    */
   @Input() iconPrefix?: string;
-  // Eventually this may become configurable, but for now
-  private optionHeight = 36;
-  @ViewChild('optionButtons') private optionButtons!: TemplateRef<unknown>;
-  private _menuPortal!: TemplatePortal;
-  private menuOverlay?: OverlayRef;
-
-  constructor(
-    private overlay: Overlay,
-    private overlayPositionBuilder: OverlayPositionBuilder,
-    private scrollStrategyOptions: ScrollStrategyOptions,
-    private _viewContainerRef: ViewContainerRef,
-    private element: ElementRef
-  ) { }
+  @ViewChild('select') private select!: MatSelect;
 
   ngOnInit(): void {
     this._valueIndex = this.value === null ? -1 : this._options.indexOf(this.value);
   }
 
-  ngAfterViewInit(): void {
-    this._menuPortal = new TemplatePortal(this.optionButtons, this._viewContainerRef);
-  }
-
-  toggleMenu(): void {
-    if (this.menuOverlay) {
-      this.closeMenu();
-    } else {
-      this.openMenu();
-    }
-  }
-
-  openMenu(): void {
-    // Don't double-open the menu
-    if (this.menuOverlay) {
-      return;
-    }
-    console.log(this.element.nativeElement);
-    console.log(`width = ${this.element.nativeElement.width}`);
-    this.menuOverlay = this.overlay.create({
-      hasBackdrop: true,
-      backdropClass: 'product-select-backdrop',
-      positionStrategy: this.overlayPositionBuilder.flexibleConnectedTo(this.element).withPositions([
-        {
-          originX: 'start',
-          originY: 'top',
-          overlayX: 'start',
-          overlayY: 'top',
-          // Since 0 is 0, and 0 is the default, default to 0
-          offsetY: this._valueIndex > 0 ? -(this.optionHeight * this._valueIndex) : 0
-        }
-      ]),
-      panelClass: ['product-select-panel', 'mat-primary'],
-      scrollStrategy: this.scrollStrategyOptions.reposition({
-        autoClose: false
-      }),
-      width: this.element.nativeElement.offsetWidth
-    });
-    this.menuOverlay.attach(this._menuPortal);
-    // Bind to the overlay to deal with mouse clicks
-    this.menuOverlay.backdropClick().subscribe(() => {
-      this.closeMenu();
-    });
-  }
-
-  closeMenu(): void {
-    if (this.menuOverlay) {
-      // TODO: Animate the menu going away
-      this.menuOverlay.dispose();
-      this.menuOverlay = undefined;
-    }
-  }
-
   _handleKey(event: KeyboardEvent): void {
     if (this._handleQuickKey(event)) {
       event.preventDefault();
-      // Close the menu if it were open
-      this.closeMenu();
-      this.moveToNext.emit('row');
-    }
-    if (event.code === 'ArrowUp') {
-      // Move to previous.
-      this._valueIndex--;
-      if (this._valueIndex < 0) {
-        this._valueIndex = 0;
-      }
-      this._setValue(this._options[this._valueIndex]);
-      event.preventDefault();
-    } else if (event.code === 'ArrowDown') {
-      // Move to next.
-      this._valueIndex++;
-      if (this._valueIndex >= this._options.length) {
-        this._valueIndex = this._options.length - 1;
-      }
-      this._setValue(this._options[this._valueIndex]);
-      event.preventDefault();
-    } else if (event.code === 'Enter') {
-      // Try and move to the next
-      event.preventDefault();
-      // Close the menu if it was open
-      this.closeMenu();
-      this.moveToNext.emit('row');
-    }
-  }
-
-  _handleClick(_event: MouseEvent): void {
-    // Basically, just do a click handler
-    this.toggleMenu();
-  }
-
-  _handleOptionKey(event: KeyboardEvent): void {
-    // First, see if this was a "quick key" that bypasses the menu entirely
-    if (this._handleQuickKey(event)) {
-      event.preventDefault();
-      this.closeMenu();
+      this.select.close();
       this.moveToNext.emit('row');
     }
   }
@@ -210,16 +106,6 @@ export class ProductTableSelectComponent implements AfterViewInit, OnInit {
     }
     // Otherwise, return null
     return null;
-  }
-
-  /**
-   * Indicates an option was picked in some fashion through the UI. If the menu
-   * is open, this will close it.
-   * @param option the option that was picked
-   */
-  _pickValue(option: ProductTableSelectOption): void {
-    this._setValue(option);
-    this.closeMenu();
   }
 
   _setValue(option: ProductTableSelectOption): void {

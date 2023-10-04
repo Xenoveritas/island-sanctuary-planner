@@ -1,16 +1,6 @@
 <mat-form-field appearance="outline" subscriptSizing="dynamic">
-  <mat-select [(value)]="value">
+  <mat-select #select [(value)]="value" (keydown)="_handleKey($event)">
     <mat-select-trigger><mat-icon *ngIf="iconPrefix && value" [svgIcon]="iconPrefix + value.id"></mat-icon> {{value?.name ?? ''}}</mat-select-trigger>
     <mat-option *ngFor="let opt of options, let idx = index" [value]="opt"><mat-icon *ngIf="iconPrefix" [svgIcon]="iconPrefix + opt.id"></mat-icon> {{opt.name}}</mat-option>
   </mat-select>
 </mat-form-field>
-<!--
-<button mat-button class="product-select-trigger" (keydown)="_handleKey($event)" (click)="_handleClick($event)"><mat-icon *ngIf="iconPrefix && value" [svgIcon]="iconPrefix + value.id"></mat-icon> {{value?.name}} <mat-icon fontIcon="arrow_drop_down"></mat-icon></button>
-<ng-template #optionButtons>
-  <div class="product-select-panel-wrap">
-    <div role="listbox">
-      <div class="product-option" *ngFor="let opt of options, let idx = index" (keydown)="_handleOptionKey($event)" (click)="_pickValue(opt)" [ngClass]="idx == _valueIndex ? 'mat-selected' : ''"><mat-icon *ngIf="iconPrefix" [svgIcon]="iconPrefix + opt.id"></mat-icon> {{opt.name}}</div>
-    </div>
-  </div>
-</ng-template>
--->

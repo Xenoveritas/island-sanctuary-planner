@@ -14,9 +14,9 @@
 //  If you specify typography styles for the components you use elsewhere, you should delete this line.
 //  If you don't need the default component typographies but still want the hierarchy styles,
 //  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
-@include mat.all-legacy-component-typographies();
-@include mat.legacy-core();
+//    `@include mat.legacy-typography-hierarchy(mat.define-typography-config());`
+@include mat.all-component-typographies();
+@include mat.core();
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -29,7 +29,14 @@ $island-sanctuary-planner-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$island-sanctuary-planner-theme: mat.define-light-theme((
+$island-sanctuary-planner-theme: mat.define-dark-theme((
+  color: (
+    primary: $island-sanctuary-planner-primary,
+    accent: $island-sanctuary-planner-accent,
+    warn: $island-sanctuary-planner-warn,
+  )
+));
+$island-sanctuary-planner-theme-light: mat.define-light-theme((
   color: (
     primary: $island-sanctuary-planner-primary,
     accent: $island-sanctuary-planner-accent,
@@ -40,20 +47,40 @@ $island-sanctuary-planner-theme: mat.define-light-theme((
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.legacy-core-theme($island-sanctuary-planner-theme);
-@include mat.legacy-button-theme($island-sanctuary-planner-theme);
-@include mat.legacy-card-theme($island-sanctuary-planner-theme);
-@include mat.legacy-table-theme($island-sanctuary-planner-theme);
-@include mat.legacy-form-field-theme($island-sanctuary-planner-theme);
+@include mat.core-theme($island-sanctuary-planner-theme);
+@include mat.button-theme($island-sanctuary-planner-theme);
+@include mat.fab-theme($island-sanctuary-planner-theme);
+@include mat.icon-button-theme($island-sanctuary-planner-theme);
+@include mat.card-theme($island-sanctuary-planner-theme);
+@include mat.table-theme($island-sanctuary-planner-theme);
+@include mat.form-field-theme($island-sanctuary-planner-theme);
 @include mat.icon-theme($island-sanctuary-planner-theme);
-@include mat.legacy-input-theme($island-sanctuary-planner-theme);
-@include mat.legacy-select-theme($island-sanctuary-planner-theme);
+@include mat.input-theme($island-sanctuary-planner-theme);
+@include mat.select-theme($island-sanctuary-planner-theme);
 @include mat.sort-theme($island-sanctuary-planner-theme);
-@include mat.legacy-tabs-theme($island-sanctuary-planner-theme);
-@include mat.legacy-tooltip-theme($island-sanctuary-planner-theme);
-@include mat.legacy-snack-bar-theme($island-sanctuary-planner-theme);
+@include mat.tabs-theme($island-sanctuary-planner-theme);
+@include mat.tooltip-theme($island-sanctuary-planner-theme);
+@include mat.snack-bar-theme($island-sanctuary-planner-theme);
 
-/* You can add global styles to this file, and also import other style files */
+// Use light theme if the user wishes
+@media (prefers-color-scheme: light) {
+  @include mat.core-color($island-sanctuary-planner-theme-light);
+  @include mat.button-color($island-sanctuary-planner-theme-light);
+  @include mat.fab-color($island-sanctuary-planner-theme-light);
+  @include mat.icon-button-color($island-sanctuary-planner-theme-light);
+  @include mat.card-color($island-sanctuary-planner-theme-light);
+  @include mat.table-color($island-sanctuary-planner-theme-light);
+  @include mat.form-field-color($island-sanctuary-planner-theme-light);
+  @include mat.icon-color($island-sanctuary-planner-theme-light);
+  @include mat.input-color($island-sanctuary-planner-theme-light);
+  @include mat.select-color($island-sanctuary-planner-theme-light);
+  @include mat.sort-color($island-sanctuary-planner-theme-light);
+  @include mat.tabs-color($island-sanctuary-planner-theme-light);
+  @include mat.tooltip-color($island-sanctuary-planner-theme-light);
+  @include mat.snack-bar-color($island-sanctuary-planner-theme-light);
+}
+
+// You can add global styles to this file, and also import other style files
 :root {
   $config: mat.get-color-config($island-sanctuary-planner-theme);
   $background: map.get(map.get($config, 'background'), 'unselected-chip');
@@ -72,41 +99,7 @@ mat-icon[data-mat-icon-name^=supply-] {
   width: 37px; height: 24px;
 }
 
-.product-table-select-menu {
-  .mat-menu-content {
-    // Remove padding from the menu
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    width: 200px;
-  }
-}
-
-.product-select-backdrop {
-  background: transparent;
-}
-
-.product-select-panel {
-  // use existing panel styles
-  @extend .mat-select-panel;
-  border-radius: 4px;
-  .product-select-panel-wrap {
-    width: 100%;
-  }
-  .product-option {
-    @extend .mat-option;
-    font-size: 14px;
-    line-height: 36px;
-    height: 36px;
-    padding: 0 16px;
-    mat-icon {
-      vertical-align: middle;
-    }
-  }
-}
-
-.product-details-panel {
-  @extend .mat-select-panel;
-  border-radius: 4px;
-  padding: 0.5em;
-  pointer-events: none;
+app-product-table-select {
+  $special-theme: mat.define-dark-theme((density: -3));
+  @include mat.form-field-theme($special-theme);
 }

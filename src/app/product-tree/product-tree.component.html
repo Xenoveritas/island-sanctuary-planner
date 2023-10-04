@@ -1,4 +1,4 @@
-<mat-card *ngIf="path">
+<mat-card appearance="outlined" *ngIf="path">
   <div class="path">
     <ul>
       <li class="product" *ngFor="let product of path; let i = index">{{product.name}}<span *ngIf="i > 0">&times; 2</span></li>

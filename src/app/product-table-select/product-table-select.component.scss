@@ -1,14 +1,15 @@
-:host {
-  display: inline-block;
-}
-button.product-select-trigger {
-  font-weight: 400;
-  text-align: start;
-  width: 200px;
-  mat-icon[data-mat-icon-name=arrow_drop_down] {
-    color: var(--select-arrow);
-    // This works, but I hate it
-    float: right;
-    padding-top: 4px;
-  }
-}
+@use '@angular/material' as mat;
+// :host {
+  // display: inline-block;
+// }
+// button.product-select-trigger {
+//   font-weight: 400;
+//   text-align: start;
+//   width: 200px;
+//   mat-icon[data-mat-icon-name=arrow_drop_down] {
+//     color: var(--select-arrow);
+//     // This works, but I hate it
+//     float: right;
+//     padding-top: 4px;
+//   }
+// }

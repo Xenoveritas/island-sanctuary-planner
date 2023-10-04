@@ -21,8 +21,57 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$island-sanctuary-planner-primary: mat.define-palette(mat.$indigo-palette);
-$island-sanctuary-planner-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$island-sanctuary-planner-blue-palette: (
+  50: #e8eafb,
+  100: #c5cbf5,
+  200: #9daaee,
+  300: #7388e8,
+  400: #506ce3,
+  500: #2351dc,
+  600: #1d49d1,
+  700: #093ec4,
+  800: #0033b9,
+  900: #001ea7,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: black,
+    500: black,
+    600: black,
+    700: black,
+    800: black,
+    900: black,
+  )
+);
+$island-sanctuary-planner-yellow-palette: (
+  50: #fdfbe4,
+  100: #fbf5be,
+  200: #f7ed92,
+  300: #f4e766,
+  400: #f2e243,
+  500: #efdd14,
+  600: #efcb0f,
+  700: #eeb302,
+  800: #ed9b00,
+  900: #ea7000,
+  contrast: (
+    50: white,
+    100: white,
+    200: white,
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: black,
+    900: black,
+  )
+);
+
+$island-sanctuary-planner-primary: mat.define-palette($island-sanctuary-planner-blue-palette);
+$island-sanctuary-planner-accent: mat.define-palette($island-sanctuary-planner-yellow-palette, 700, 100, 900);
 
 // The warn palette is optional (defaults to red).
 $island-sanctuary-planner-warn: mat.define-palette(mat.$red-palette);

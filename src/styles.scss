@@ -111,24 +111,6 @@ $island-sanctuary-planner-theme-light: mat.define-light-theme((
 @include mat.tooltip-theme($island-sanctuary-planner-theme);
 @include mat.snack-bar-theme($island-sanctuary-planner-theme);
 
-// Use light theme if the user wishes
-@media (prefers-color-scheme: light) {
-  @include mat.core-color($island-sanctuary-planner-theme-light);
-  @include mat.button-color($island-sanctuary-planner-theme-light);
-  @include mat.fab-color($island-sanctuary-planner-theme-light);
-  @include mat.icon-button-color($island-sanctuary-planner-theme-light);
-  @include mat.card-color($island-sanctuary-planner-theme-light);
-  @include mat.table-color($island-sanctuary-planner-theme-light);
-  @include mat.form-field-color($island-sanctuary-planner-theme-light);
-  @include mat.icon-color($island-sanctuary-planner-theme-light);
-  @include mat.input-color($island-sanctuary-planner-theme-light);
-  @include mat.select-color($island-sanctuary-planner-theme-light);
-  @include mat.sort-color($island-sanctuary-planner-theme-light);
-  @include mat.tabs-color($island-sanctuary-planner-theme-light);
-  @include mat.tooltip-color($island-sanctuary-planner-theme-light);
-  @include mat.snack-bar-color($island-sanctuary-planner-theme-light);
-}
-
 // You can add global styles to this file, and also import other style files
 :root {
   $config: mat.get-color-config($island-sanctuary-planner-theme);
@@ -148,7 +130,56 @@ mat-icon[data-mat-icon-name^=supply-] {
   width: 37px; height: 24px;
 }
 
+// The primary color is too hard to read on the dark theme when used in mat-select, so pick a lighter blue for it
+$light-blue: mat.get-color-from-palette($island-sanctuary-planner-blue-palette, 300);
 app-product-table-select {
-  $special-theme: mat.define-dark-theme((density: -3));
+  $special-theme: mat.define-dark-theme((
+    color: (
+      primary: mat.define-palette($island-sanctuary-planner-blue-palette, 300),
+      accent: $island-sanctuary-planner-accent,
+      warn: $island-sanctuary-planner-warn,
+    ),
+    density: -3
+  ));
   @include mat.form-field-theme($special-theme);
+  .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+    color: $light-blue;
+  }
+}
+div.app-product-table-select {
+  --mdc-theme-primary: #{$light-blue};
+  // Checkbox doesn't use the variable for some reason
+  &.mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after {
+    color: $light-blue;
+  }
+}
+
+// Use light theme if the user wishes
+@media (prefers-color-scheme: light) {
+  // Blue color for selects (need to undo dark theme overrides for the light theme)
+  $blue: mat.get-color-from-palette($island-sanctuary-planner-blue-palette, 500);
+  @include mat.core-color($island-sanctuary-planner-theme-light);
+  @include mat.button-color($island-sanctuary-planner-theme-light);
+  @include mat.fab-color($island-sanctuary-planner-theme-light);
+  @include mat.icon-button-color($island-sanctuary-planner-theme-light);
+  @include mat.card-color($island-sanctuary-planner-theme-light);
+  @include mat.table-color($island-sanctuary-planner-theme-light);
+  @include mat.form-field-color($island-sanctuary-planner-theme-light);
+  @include mat.icon-color($island-sanctuary-planner-theme-light);
+  @include mat.input-color($island-sanctuary-planner-theme-light);
+  @include mat.select-color($island-sanctuary-planner-theme-light);
+  @include mat.sort-color($island-sanctuary-planner-theme-light);
+  @include mat.tabs-color($island-sanctuary-planner-theme-light);
+  @include mat.tooltip-color($island-sanctuary-planner-theme-light);
+  @include mat.snack-bar-color($island-sanctuary-planner-theme-light);
+  // Undo color change on light
+  app-product-table-select .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+    color: $blue;
+  }
+  div.app-product-table-select {
+    --mdc-theme-primary: #{$blue};
+    &.mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after {
+      color: $blue;
+    }
+  }
 }

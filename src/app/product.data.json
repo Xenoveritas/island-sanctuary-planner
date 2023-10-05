@@ -434,13 +434,13 @@
     },
     "brass-serving-dish": {
       "name": "Isleworks Brass Serving Dish",
-      "rank": 16, "value": 46, "time": 4,
+      "rank": 16, "value": 36, "time": 4,
       "ingredients": {"yellow-copper-ore": 2, "copper-ore": 2},
       "categories": ["sundries", "metalworks"]
     },
     "grinding-wheel": {
       "name": "Island Grinding Wheel",
-      "rank": 16, "value": 78, "time": 6,
+      "rank": 16, "value": 60, "time": 6,
       "ingredients": {"hawks-eye-sand": 2, "mythril-ore": 2, "sand": 2},
       "categories": ["sundries"]
     }

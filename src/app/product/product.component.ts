@@ -87,7 +87,7 @@ export class ProductComponent implements AfterViewInit, OnDestroy, OnInit {
 
   closePopup(): void {
     if (this._popupOverlay) {
-      // TODO: Animate the menu going away
+      // TODO: Animate the popup going away
       this._popupOverlay.dispose();
       this._popupOverlay = undefined;
     }

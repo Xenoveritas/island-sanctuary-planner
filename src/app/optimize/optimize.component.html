@@ -1,4 +1,5 @@
-<p *ngIf="!results">Calculating...</p>
+<div style="margin: 1em; display: flex; flex-direction: row;" *ngIf="!results"><div style="padding-right: 0.5em;"><mat-progress-spinner diameter="24" mode="indeterminate"></mat-progress-spinner></div>
+Calculating...</div>
 <!-- TODO: Make this a "real" Material table (would allow sorting/pagination/other fun things) -->
 <table *ngIf="results" class="full-width-table" matSort aria-label="Elements">
   <thead>

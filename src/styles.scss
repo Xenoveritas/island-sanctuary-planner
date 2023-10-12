@@ -7,15 +7,6 @@
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(mat.define-typography-config());`
-@include mat.all-component-typographies();
 @include mat.core();
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
@@ -37,8 +28,8 @@ $island-sanctuary-planner-blue-palette: (
     100: white,
     200: white,
     300: white,
-    400: black,
-    500: black,
+    400: white,
+    500: white,
     600: black,
     700: black,
     800: black,
@@ -70,8 +61,11 @@ $island-sanctuary-planner-yellow-palette: (
   )
 );
 
-$island-sanctuary-planner-primary: mat.define-palette($island-sanctuary-planner-blue-palette);
+$island-sanctuary-planner-primary: mat.define-palette($island-sanctuary-planner-blue-palette, 600);
+// The default blue is too hard to see in some places
+$island-sanctuary-planner-primary-lighter: mat.define-palette($island-sanctuary-planner-blue-palette, 300);
 $island-sanctuary-planner-accent: mat.define-palette($island-sanctuary-planner-yellow-palette, 700, 100, 900);
+$island-sanctuary-planner-typography: mat.define-typography-config();
 
 // The warn palette is optional (defaults to red).
 $island-sanctuary-planner-warn: mat.define-palette(mat.$red-palette);
@@ -83,15 +77,26 @@ $island-sanctuary-planner-theme: mat.define-dark-theme((
     primary: $island-sanctuary-planner-primary,
     accent: $island-sanctuary-planner-accent,
     warn: $island-sanctuary-planner-warn,
-  )
+  ),
+  typography: $island-sanctuary-planner-typography
+));
+$island-sanctuary-planner-theme-darklight: mat.define-dark-theme((
+  color: (
+    primary: $island-sanctuary-planner-primary-lighter,
+    accent: $island-sanctuary-planner-accent,
+    warn: $island-sanctuary-planner-warn,
+  ),
+  typography: $island-sanctuary-planner-typography
 ));
 $island-sanctuary-planner-theme-light: mat.define-light-theme((
   color: (
-    primary: $island-sanctuary-planner-primary,
+    primary: mat.define-palette($island-sanctuary-planner-blue-palette, 500),
     accent: $island-sanctuary-planner-accent,
     warn: $island-sanctuary-planner-warn,
   )
 ));
+
+@include mat.typography-hierarchy($island-sanctuary-planner-typography);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -102,10 +107,11 @@ $island-sanctuary-planner-theme-light: mat.define-light-theme((
 @include mat.icon-button-theme($island-sanctuary-planner-theme);
 @include mat.card-theme($island-sanctuary-planner-theme);
 @include mat.table-theme($island-sanctuary-planner-theme);
-@include mat.form-field-theme($island-sanctuary-planner-theme);
+@include mat.form-field-theme($island-sanctuary-planner-theme-darklight);
 @include mat.icon-theme($island-sanctuary-planner-theme);
 @include mat.input-theme($island-sanctuary-planner-theme);
-@include mat.select-theme($island-sanctuary-planner-theme);
+@include mat.progress-spinner-theme($island-sanctuary-planner-theme);
+@include mat.select-theme($island-sanctuary-planner-theme-darklight);
 @include mat.sort-theme($island-sanctuary-planner-theme);
 @include mat.tabs-theme($island-sanctuary-planner-theme);
 @include mat.tooltip-theme($island-sanctuary-planner-theme);
@@ -120,7 +126,9 @@ $island-sanctuary-planner-theme-light: mat.define-light-theme((
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
+
+.product-popup-backdrop { pointer-events: none; }
 
 // Global icon sizes
 mat-icon[data-mat-icon-name^=popularity-], mat-icon[data-mat-icon-name^=demandShift-] {
@@ -167,6 +175,7 @@ div.app-product-table-select {
   @include mat.form-field-color($island-sanctuary-planner-theme-light);
   @include mat.icon-color($island-sanctuary-planner-theme-light);
   @include mat.input-color($island-sanctuary-planner-theme-light);
+  @include mat.progress-spinner-color($island-sanctuary-planner-theme);
   @include mat.select-color($island-sanctuary-planner-theme-light);
   @include mat.sort-color($island-sanctuary-planner-theme-light);
   @include mat.tabs-color($island-sanctuary-planner-theme-light);

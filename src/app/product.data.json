@@ -443,6 +443,24 @@
       "rank": 16, "value": 60, "time": 6,
       "ingredients": {"hawks-eye-sand": 2, "mythril-ore": 2, "sand": 2},
       "categories": ["sundries"]
+    },
+    "durium-tathlums": {
+      "name": "Island Durium Tathlums",
+      "rank": 17, "value": 54, "time": 6,
+      "ingredients": {"durium-sand": 2, "iron-ore": 2, "quartz": 2},
+      "categories": ["arms", "metalworks"]
+    },
+    "gold-hairpin": {
+      "name": "Isleworks Gold Hairpin",
+      "rank": 17, "value": 72, "time": 8,
+      "ingredients": {"gold-ore": 4, "yellow-copper-ore": 2, "quartz": 2},
+      "categories": ["accessories", "metalworks"]
+    },
+    "mammet-of-the-cycle-award": {
+      "name": "Mammet of the Cycle Award",
+      "rank": 17, "value": 80, "time": 8,
+      "ingredients": {"crystal-formation": 2, "spectrine": 2, "mythril-ore": 2, "marble": 2},
+      "categories": ["furnishings"]
     }
   },
   "materials": {
@@ -517,6 +535,18 @@
       "hawks-eye-sand": {
         "name": "Island Hawk's Eye Sand",
         "rank": 16
+      },
+      "durium-sand": {
+        "name": "Island Durium Sand",
+        "rank": 17
+      },
+      "gold-ore": {
+        "name": "Island Gold Ore",
+        "rank": 17
+      },
+      "crystal-formation": {
+        "name": "Island Crystal Formation",
+        "rank": 17
       }
     },
     "granary": {

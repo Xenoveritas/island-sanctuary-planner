@@ -461,6 +461,30 @@
       "rank": 17, "value": 80, "time": 8,
       "ingredients": {"crystal-formation": 2, "spectrine": 2, "mythril-ore": 2, "marble": 2},
       "categories": ["furnishings"]
+    },
+    "fruit-punch": {
+      "name": "Isleworks Fruit Punch",
+      "rank": 18, "value": 52, "time": 4,
+      "ingredients": {"watermelon": 1, "isleberry": 1, "apple": 1, "coconut": 1},
+      "categories": ["confections"]
+    },
+    "sweet-popoto-pie": {
+      "name": "Isleworks Sweet Popoto Pie",
+      "rank": 18, "value": 120, "time": 8,
+      "ingredients": {"sweet-popoto": 3, "wheat": 1, "egg": 1, "sugarcane": 3},
+      "categories": ["foodstuffs", "confections"]
+    },
+    "peperoncino": {
+      "name": "Isleworks Peperoncino",
+      "rank": 18, "value": 75, "time": 6,
+      "ingredients": {"broccoli": 2, "wheat": 1, "rock-salt": 3},
+      "categories": ["foodstuffs"]
+    },
+    "buffalo-bean-salad": {
+      "name": "Isleworks Buffalo Bean Salad",
+      "rank": 18, "value": 52, "time": 4,
+      "ingredients": {"buffalo-beans": 2, "milk": 2},
+      "categories": ["foodstuffs", "creature-creations"]
     }
   },
   "materials": {
